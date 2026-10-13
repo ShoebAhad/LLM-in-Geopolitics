@@ -1,0 +1,34 @@
+{
+ "model": "gemma-4-31b-it",
+ "tag": "gemma4-31b-codebook",
+ "provider": "openai-compat",
+ "base_url": "http://192.168.100.145:4000/v1",
+ "conditions": [
+  "fs_cot"
+ ],
+ "langs": [
+  "en",
+  "bn"
+ ],
+ "runs": [
+  1,
+  2
+ ],
+ "temp": 0.7,
+ "split": "all",
+ "limit": 0,
+ "workers": 32,
+ "max_inflight_tokens": 64000,
+ "tpm": 100000000,
+ "max_chars": 60000,
+ "extra_body": "",
+ "no_temp": false,
+ "no_seed": false,
+ "max_tokens": 4000,
+ "max_tokens_cot": 16000,
+ "exemplars": "default",
+ "schema": "codebook",
+ "key_file": "~/.bfpn_api_key",
+ "out": "results/v2",
+ "keep_caps": false
+}

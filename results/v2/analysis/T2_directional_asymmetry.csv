@@ -1,0 +1,547 @@
+model,cond,lang,flow,label,into,out_of,net,share_into,p_binom,p_holm
+gemma4-31b-balex,fs,bn,major_power_attribution,toward India/China/US/UN,26,28,-2,0.48148148148148145,0.8919231511047488,1.0
+gemma4-31b-balex,fs,bn,india_attribution,toward India,7,27,-20,0.20588235294117646,0.0008213953115046024,0.22999068722128868
+gemma4-31b-balex,fs,bn,polarization,toward Pro-West/Pro-China,49,47,2,0.5104166666666666,0.918778035364537,1.0
+gemma4-31b-balex,fs,bn,pro_west,toward Pro-West,34,47,-13,0.41975308641975306,0.18207674694084314,1.0
+gemma4-31b-balex,fs,bn,non_aligned,toward Non-aligned,54,57,-3,0.4864864864864865,0.8495501873144536,1.0
+gemma4-31b-balex,fs,bn,strategic_default,toward Strategic,129,40,89,0.7633136094674556,4.0359707583118245e-12,1.7314314553157727e-09
+gemma4-31b-balex,fs,bn,causal_yes,toward Yes (FP) vs No (FN),58,123,-65,0.32044198895027626,1.5340873965575112e-06,0.0005384646761916864
+gemma4-31b-balex,fs,en,major_power_attribution,toward India/China/US/UN,27,29,-2,0.48214285714285715,0.8938530948350216,1.0
+gemma4-31b-balex,fs,en,india_attribution,toward India,9,29,-20,0.23684210526315788,0.0016580525261815637,0.4377258669119328
+gemma4-31b-balex,fs,en,polarization,toward Pro-West/Pro-China,50,52,-2,0.49019607843137253,0.9211910492538724,1.0
+gemma4-31b-balex,fs,en,pro_west,toward Pro-West,39,51,-12,0.43333333333333335,0.24610644971627807,1.0
+gemma4-31b-balex,fs,en,non_aligned,toward Non-aligned,56,52,4,0.5185185185185185,0.7729885295985336,1.0
+gemma4-31b-balex,fs,en,strategic_default,toward Strategic,131,45,86,0.7443181818181818,6.1408198830206e-11,2.5177361520384462e-08
+gemma4-31b-balex,fs,en,causal_yes,toward Yes (FP) vs No (FN),43,127,-84,0.2529411764705882,7.964576811457372e-11,3.2495473390746075e-08
+gemma4-31b-codebook,fs,bn,major_power_attribution,toward India/China/US/UN,26,26,0,0.5,1.0,1.0
+gemma4-31b-codebook,fs,bn,india_attribution,toward India,7,25,-18,0.21875,0.0021024015732109547,0.5466244090348482
+gemma4-31b-codebook,fs,bn,polarization,toward Pro-West/Pro-China,29,71,-42,0.29,3.2160015295666335e-05,0.010259044879317562
+gemma4-31b-codebook,fs,bn,pro_west,toward Pro-West,18,69,-51,0.20689655172413793,3.321617372543578e-08,1.2555713668214725e-05
+gemma4-31b-codebook,fs,bn,non_aligned,toward Non-aligned,102,22,80,0.8225806451612904,1.6601952366746198e-13,7.42107270793555e-11
+gemma4-31b-codebook,fs,bn,strategic_default,toward Strategic,118,48,70,0.7108433734939759,5.480870276242312e-08,2.03888374276214e-05
+gemma4-31b-codebook,fs,bn,causal_yes,toward Yes (FP) vs No (FN),48,119,-71,0.2874251497005988,3.825607655651559e-08,1.4422540861806377e-05
+gemma4-31b-codebook,fs,en,major_power_attribution,toward India/China/US/UN,27,26,1,0.5094339622641509,1.0,1.0
+gemma4-31b-codebook,fs,en,india_attribution,toward India,9,26,-17,0.2571428571428571,0.005988120567053557,1.0
+gemma4-31b-codebook,fs,en,polarization,toward Pro-West/Pro-China,34,62,-28,0.3541666666666667,0.005572997762164588,1.0
+gemma4-31b-codebook,fs,en,pro_west,toward Pro-West,21,60,-39,0.25925925925925924,1.69358312158601e-05,0.005571888470017972
+gemma4-31b-codebook,fs,en,non_aligned,toward Non-aligned,94,27,67,0.7768595041322314,7.135074175145182e-10,2.8326244475326373e-07
+gemma4-31b-codebook,fs,en,strategic_default,toward Strategic,118,49,69,0.7065868263473054,9.467012913583296e-08,3.483860752198653e-05
+gemma4-31b-codebook,fs,en,causal_yes,toward Yes (FP) vs No (FN),37,133,-96,0.21764705882352942,6.513945743392775e-14,2.944303476013534e-11
+gemma4-31b-codebook,fs_cot,bn,major_power_attribution,toward India/China/US/UN,25,24,1,0.5102040816326531,1.0,1.0
+gemma4-31b-codebook,fs_cot,bn,india_attribution,toward India,7,22,-15,0.2413793103448276,0.008130058646202087,1.0
+gemma4-31b-codebook,fs_cot,bn,polarization,toward Pro-West/Pro-China,56,38,18,0.5957446808510638,0.07897554800108206,1.0
+gemma4-31b-codebook,fs_cot,bn,pro_west,toward Pro-West,44,38,6,0.5365853658536586,0.581114454176647,1.0
+gemma4-31b-codebook,fs_cot,bn,non_aligned,toward Non-aligned,60,43,17,0.5825242718446602,0.11446824201255819,1.0
+gemma4-31b-codebook,fs_cot,bn,strategic_default,toward Strategic,114,59,55,0.6589595375722543,3.50253792366362e-05,0.011138070597250312
+gemma4-31b-codebook,fs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),99,71,28,0.5823529411764706,0.03806366960413438,1.0
+gemma4-31b-codebook,fs_cot,en,major_power_attribution,toward India/China/US/UN,23,23,0,0.5,1.0,1.0
+gemma4-31b-codebook,fs_cot,en,india_attribution,toward India,8,23,-15,0.25806451612903225,0.010673840530216694,1.0
+gemma4-31b-codebook,fs_cot,en,polarization,toward Pro-West/Pro-China,52,37,15,0.5842696629213483,0.137367971355652,1.0
+gemma4-31b-codebook,fs_cot,en,pro_west,toward Pro-West,40,37,3,0.5194805194805194,0.8198929037490488,1.0
+gemma4-31b-codebook,fs_cot,en,non_aligned,toward Non-aligned,62,39,23,0.6138613861386139,0.028089467947778165,1.0
+gemma4-31b-codebook,fs_cot,en,strategic_default,toward Strategic,103,65,38,0.6130952380952381,0.004171262245533492,0.9885891521914376
+gemma4-31b-codebook,fs_cot,en,causal_yes,toward Yes (FP) vs No (FN),91,74,17,0.5515151515151515,0.21278579701152098,1.0
+gemma4-31b-codebook,zs,bn,major_power_attribution,toward India/China/US/UN,24,28,-4,0.46153846153846156,0.6778086391424605,1.0
+gemma4-31b-codebook,zs,bn,india_attribution,toward India,7,27,-20,0.20588235294117646,0.0008213953115046024,0.22999068722128868
+gemma4-31b-codebook,zs,bn,polarization,toward Pro-West/Pro-China,98,37,61,0.725925925925926,1.5020945707319435e-07,5.4676242374642745e-05
+gemma4-31b-codebook,zs,bn,pro_west,toward Pro-West,80,37,43,0.6837606837606838,8.717436729426461e-05,0.026501007657456443
+gemma4-31b-codebook,zs,bn,non_aligned,toward Non-aligned,34,115,-81,0.22818791946308725,1.7379084333236793e-11,7.299215419959453e-09
+gemma4-31b-codebook,zs,bn,strategic_default,toward Strategic,151,35,116,0.8118279569892473,2.271773708901119e-18,1.0927231539814381e-15
+gemma4-31b-codebook,zs,bn,causal_yes,toward Yes (FP) vs No (FN),67,114,-47,0.3701657458563536,0.0005895324213043271,0.16624814280782024
+gemma4-31b-codebook,zs,en,major_power_attribution,toward India/China/US/UN,26,26,0,0.5,1.0,1.0
+gemma4-31b-codebook,zs,en,india_attribution,toward India,9,25,-16,0.2647058823529412,0.00904118549078703,1.0
+gemma4-31b-codebook,zs,en,polarization,toward Pro-West/Pro-China,98,35,63,0.7368421052631579,4.292058431471203e-08,1.6095219118017012e-05
+gemma4-31b-codebook,zs,en,pro_west,toward Pro-West,82,36,46,0.6949152542372882,2.7583788780912003e-05,0.008881979987453666
+gemma4-31b-codebook,zs,en,non_aligned,toward Non-aligned,31,113,-82,0.2152777777777778,3.706341840886839e-12,1.5937269915813407e-09
+gemma4-31b-codebook,zs,en,strategic_default,toward Strategic,146,35,111,0.8066298342541437,2.5564607838908548e-17,1.1989801076448109e-14
+gemma4-31b-codebook,zs,en,causal_yes,toward Yes (FP) vs No (FN),46,121,-75,0.2754491017964072,5.735034481380454e-09,2.225193378775616e-06
+gemma4-31b-codebook,zs_cot,bn,major_power_attribution,toward India/China/US/UN,27,22,5,0.5510204081632653,0.5681724128491652,1.0
+gemma4-31b-codebook,zs_cot,bn,india_attribution,toward India,6,22,-16,0.21428571428571427,0.0037191659212112427,0.9074764847755432
+gemma4-31b-codebook,zs_cot,bn,polarization,toward Pro-West/Pro-China,151,27,124,0.848314606741573,4.2049547774254845e-22,2.0772476600481893e-19
+gemma4-31b-codebook,zs_cot,bn,pro_west,toward Pro-West,123,29,94,0.8092105263157895,5.562319435603261e-15,2.5531046209418967e-12
+gemma4-31b-codebook,zs_cot,bn,non_aligned,toward Non-aligned,33,134,-101,0.19760479041916168,1.2248159148500592e-15,5.658649526607273e-13
+gemma4-31b-codebook,zs_cot,bn,strategic_default,toward Strategic,126,45,81,0.7368421052631579,4.487748130744307e-10,1.7906115041669784e-07
+gemma4-31b-codebook,zs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),111,59,52,0.6529411764705882,8.152473202823977e-05,0.02494656800064137
+gemma4-31b-codebook,zs_cot,en,major_power_attribution,toward India/China/US/UN,25,22,3,0.5319148936170213,0.7708669945730263,1.0
+gemma4-31b-codebook,zs_cot,en,india_attribution,toward India,8,22,-14,0.26666666666666666,0.016124801710247997,1.0
+gemma4-31b-codebook,zs_cot,en,polarization,toward Pro-West/Pro-China,137,26,111,0.8404907975460123,2.0847213178347787e-19,1.0152592817855372e-16
+gemma4-31b-codebook,zs_cot,en,pro_west,toward Pro-West,116,29,87,0.8,1.5922199070946208e-13,7.133145183783901e-11
+gemma4-31b-codebook,zs_cot,en,non_aligned,toward Non-aligned,36,125,-89,0.2236024844720497,1.0326378864944488e-12,4.5023011851157966e-10
+gemma4-31b-codebook,zs_cot,en,strategic_default,toward Strategic,123,50,73,0.7109826589595376,2.7652344853994462e-08,1.0507891044517895e-05
+gemma4-31b-codebook,zs_cot,en,causal_yes,toward Yes (FP) vs No (FN),87,77,10,0.5304878048780488,0.4823062881447236,1.0
+gpt-oss-20b-balex,fs,bn,major_power_attribution,toward India/China/US/UN,25,38,-13,0.3968253968253968,0.12991792302255253,1.0
+gpt-oss-20b-balex,fs,bn,india_attribution,toward India,7,37,-30,0.1590909090909091,5.299581744111492e-06,0.0018018577929979074
+gpt-oss-20b-balex,fs,bn,polarization,toward Pro-West/Pro-China,41,77,-36,0.3474576271186441,0.0011783931030854508,0.3205229240392426
+gpt-oss-20b-balex,fs,bn,pro_west,toward Pro-West,35,74,-39,0.3211009174311927,0.0002374680146274881,0.07005306431510899
+gpt-oss-20b-balex,fs,bn,non_aligned,toward Non-aligned,30,121,-91,0.1986754966887417,3.717726603907368e-14,1.6915656047778525e-11
+gpt-oss-20b-balex,fs,bn,strategic_default,toward Strategic,112,57,55,0.6627218934911243,2.808859363960721e-05,0.008988349964674307
+gpt-oss-20b-balex,fs,bn,causal_yes,toward Yes (FP) vs No (FN),124,60,64,0.6739130434782609,2.7368428087578955e-06,0.0009441893035448429
+gpt-oss-20b-balex,fs,en,major_power_attribution,toward India/China/US/UN,27,27,0,0.5,1.0,1.0
+gpt-oss-20b-balex,fs,en,india_attribution,toward India,10,24,-14,0.29411764705882354,0.024306510109454393,1.0
+gpt-oss-20b-balex,fs,en,polarization,toward Pro-West/Pro-China,31,86,-55,0.26495726495726496,3.681441540970094e-07,0.00013253189547492337
+gpt-oss-20b-balex,fs,en,pro_west,toward Pro-West,28,81,-53,0.25688073394495414,3.778053497089468e-07,0.00013563212054551192
+gpt-oss-20b-balex,fs,en,non_aligned,toward Non-aligned,46,113,-67,0.2893081761006289,1.0872504072879239e-07,3.9793364906738015e-05
+gpt-oss-20b-balex,fs,en,strategic_default,toward Strategic,111,68,43,0.6201117318435754,0.0016191812707859626,0.4290830367582801
+gpt-oss-20b-balex,fs,en,causal_yes,toward Yes (FP) vs No (FN),94,73,21,0.562874251497006,0.12144802122959858,1.0
+gpt-oss-20b-codebook,fs,bn,major_power_attribution,toward India/China/US/UN,24,33,-9,0.42105263157894735,0.2892437471090205,1.0
+gpt-oss-20b-codebook,fs,bn,india_attribution,toward India,7,33,-26,0.175,4.2277022657799534e-05,0.013317262137206853
+gpt-oss-20b-codebook,fs,bn,polarization,toward Pro-West/Pro-China,50,73,-23,0.4065040650406504,0.04685007918645582,1.0
+gpt-oss-20b-codebook,fs,bn,pro_west,toward Pro-West,40,67,-27,0.37383177570093457,0.011598202043786154,1.0
+gpt-oss-20b-codebook,fs,bn,non_aligned,toward Non-aligned,69,77,-8,0.4726027397260274,0.5625209423048497,1.0
+gpt-oss-20b-codebook,fs,bn,strategic_default,toward Strategic,102,85,17,0.5454545454545454,0.24191033044426963,1.0
+gpt-oss-20b-codebook,fs,bn,causal_yes,toward Yes (FP) vs No (FN),89,86,3,0.5085714285714286,0.8798851146775633,1.0
+gpt-oss-20b-codebook,fs,en,major_power_attribution,toward India/China/US/UN,22,28,-6,0.44,0.47988766169832786,1.0
+gpt-oss-20b-codebook,fs,en,india_attribution,toward India,8,24,-16,0.25,0.0070003666914999485,1.0
+gpt-oss-20b-codebook,fs,en,polarization,toward Pro-West/Pro-China,35,78,-43,0.30973451327433627,6.445381010320707e-05,0.020109588752200605
+gpt-oss-20b-codebook,fs,en,pro_west,toward Pro-West,28,73,-45,0.27722772277227725,8.635781314660544e-06,0.0029102583030406032
+gpt-oss-20b-codebook,fs,en,non_aligned,toward Non-aligned,64,67,-3,0.48854961832061067,0.8613689310511563,1.0
+gpt-oss-20b-codebook,fs,en,strategic_default,toward Strategic,98,81,17,0.547486033519553,0.23164488381218917,1.0
+gpt-oss-20b-codebook,fs,en,causal_yes,toward Yes (FP) vs No (FN),75,76,-1,0.4966887417218543,1.0,1.0
+gpt-oss-20b-codebook,fs_cot,bn,major_power_attribution,toward India/China/US/UN,20,33,-13,0.37735849056603776,0.09837064844049181,1.0
+gpt-oss-20b-codebook,fs_cot,bn,india_attribution,toward India,7,32,-25,0.1794871794871795,7.025478407740593e-05,0.021778983063995838
+gpt-oss-20b-codebook,fs_cot,bn,polarization,toward Pro-West/Pro-China,42,64,-22,0.39622641509433965,0.04087197060775479,1.0
+gpt-oss-20b-codebook,fs_cot,bn,pro_west,toward Pro-West,32,60,-28,0.34782608695652173,0.004609105461459271,1.0
+gpt-oss-20b-codebook,fs_cot,bn,non_aligned,toward Non-aligned,62,61,1,0.5040650406504065,1.0,1.0
+gpt-oss-20b-codebook,fs_cot,bn,strategic_default,toward Strategic,110,69,41,0.6145251396648045,0.002691033834274871,0.6754494924029927
+gpt-oss-20b-codebook,fs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),109,74,35,0.5956284153005464,0.011751828037832798,1.0
+gpt-oss-20b-codebook,fs_cot,en,major_power_attribution,toward India/China/US/UN,20,37,-17,0.3508771929824561,0.03314396778750544,1.0
+gpt-oss-20b-codebook,fs_cot,en,india_attribution,toward India,7,31,-24,0.18421052631578946,0.00011616700794547796,0.03496626939158887
+gpt-oss-20b-codebook,fs_cot,en,polarization,toward Pro-West/Pro-China,45,78,-33,0.36585365853658536,0.00373144575509815,0.9074764847755432
+gpt-oss-20b-codebook,fs_cot,en,pro_west,toward Pro-West,36,74,-38,0.32727272727272727,0.00037125120307886553,0.10692034648671328
+gpt-oss-20b-codebook,fs_cot,en,non_aligned,toward Non-aligned,59,75,-16,0.44029850746268656,0.19485665950707512,1.0
+gpt-oss-20b-codebook,fs_cot,en,strategic_default,toward Strategic,97,85,12,0.532967032967033,0.41493139899211184,1.0
+gpt-oss-20b-codebook,fs_cot,en,causal_yes,toward Yes (FP) vs No (FN),81,86,-5,0.48502994011976047,0.7570261671839611,1.0
+gpt-oss-20b-codebook,zs,bn,major_power_attribution,toward India/China/US/UN,24,31,-7,0.43636363636363634,0.4187541882690154,1.0
+gpt-oss-20b-codebook,zs,bn,india_attribution,toward India,12,29,-17,0.2926829268292683,0.011507789735333063,1.0
+gpt-oss-20b-codebook,zs,bn,polarization,toward Pro-West/Pro-China,47,71,-24,0.3983050847457627,0.03378817547182593,1.0
+gpt-oss-20b-codebook,zs,bn,pro_west,toward Pro-West,39,70,-31,0.3577981651376147,0.003854108187381312,0.9288400731588962
+gpt-oss-20b-codebook,zs,bn,non_aligned,toward Non-aligned,34,122,-88,0.21794871794871795,7.714162792574794e-13,3.401945791525484e-10
+gpt-oss-20b-codebook,zs,bn,strategic_default,toward Strategic,130,53,77,0.7103825136612022,1.1867343137363515e-08,4.55705976474759e-06
+gpt-oss-20b-codebook,zs,bn,causal_yes,toward Yes (FP) vs No (FN),83,89,-6,0.48255813953488375,0.7031386893685866,1.0
+gpt-oss-20b-codebook,zs,en,major_power_attribution,toward India/China/US/UN,23,26,-3,0.46938775510204084,0.7754496546815659,1.0
+gpt-oss-20b-codebook,zs,en,india_attribution,toward India,9,23,-14,0.28125,0.020061607006937265,1.0
+gpt-oss-20b-codebook,zs,en,polarization,toward Pro-West/Pro-China,50,73,-23,0.4065040650406504,0.04685007918645582,1.0
+gpt-oss-20b-codebook,zs,en,pro_west,toward Pro-West,38,67,-29,0.3619047619047619,0.0060160815152493306,1.0
+gpt-oss-20b-codebook,zs,en,non_aligned,toward Non-aligned,34,113,-79,0.23129251700680273,4.161704685329128e-11,1.7354308537822465e-08
+gpt-oss-20b-codebook,zs,en,strategic_default,toward Strategic,126,58,68,0.6847826086956522,5.903861923086409e-07,0.00021017748446187616
+gpt-oss-20b-codebook,zs,en,causal_yes,toward Yes (FP) vs No (FN),69,98,-29,0.41317365269461076,0.029951223196102755,1.0
+gpt-oss-20b-codebook,zs_cot,bn,major_power_attribution,toward India/China/US/UN,22,31,-9,0.41509433962264153,0.27167916606550335,1.0
+gpt-oss-20b-codebook,zs_cot,bn,india_attribution,toward India,6,30,-24,0.16666666666666666,6.960169412195683e-05,0.021646126871928573
+gpt-oss-20b-codebook,zs_cot,bn,polarization,toward Pro-West/Pro-China,61,60,1,0.5041322314049587,1.0,1.0
+gpt-oss-20b-codebook,zs_cot,bn,pro_west,toward Pro-West,53,58,-5,0.4774774774774775,0.704379315424892,1.0
+gpt-oss-20b-codebook,zs_cot,bn,non_aligned,toward Non-aligned,39,104,-65,0.2727272727272727,5.1767516831417665e-08,1.9361051294950207e-05
+gpt-oss-20b-codebook,zs_cot,bn,strategic_default,toward Strategic,126,61,65,0.6737967914438503,2.2931910535192955e-06,0.0007957372955711956
+gpt-oss-20b-codebook,zs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),109,73,36,0.5989010989010989,0.00928798376753019,1.0
+gpt-oss-20b-codebook,zs_cot,en,major_power_attribution,toward India/China/US/UN,21,24,-3,0.4666666666666667,0.765991824244793,1.0
+gpt-oss-20b-codebook,zs_cot,en,india_attribution,toward India,6,20,-14,0.23076923076923078,0.009355306625366211,1.0
+gpt-oss-20b-codebook,zs_cot,en,polarization,toward Pro-West/Pro-China,45,68,-23,0.39823008849557523,0.038018645582796474,1.0
+gpt-oss-20b-codebook,zs_cot,en,pro_west,toward Pro-West,37,65,-28,0.3627450980392157,0.007206214620046471,1.0
+gpt-oss-20b-codebook,zs_cot,en,non_aligned,toward Non-aligned,38,103,-65,0.2695035460992908,4.09804793129638e-08,1.5408660221674388e-05
+gpt-oss-20b-codebook,zs_cot,en,strategic_default,toward Strategic,116,65,51,0.6408839779005525,0.00018473904784683582,0.055052236258357076
+gpt-oss-20b-codebook,zs_cot,en,causal_yes,toward Yes (FP) vs No (FN),79,86,-7,0.47878787878787876,0.6405622342031339,1.0
+gpt6-luna-balex,fs,bn,major_power_attribution,toward India/China/US/UN,25,20,5,0.5555555555555556,0.5514843298025198,1.0
+gpt6-luna-balex,fs,bn,india_attribution,toward India,11,16,-5,0.4074074074074074,0.44206833839416504,1.0
+gpt6-luna-balex,fs,bn,polarization,toward Pro-West/Pro-China,26,97,-71,0.21138211382113822,7.967669169699199e-11,3.2495473390746075e-08
+gpt6-luna-balex,fs,bn,pro_west,toward Pro-West,18,94,-76,0.16071428571428573,1.3432499592767575e-13,6.031192317152641e-11
+gpt6-luna-balex,fs,bn,non_aligned,toward Non-aligned,10,181,-171,0.05235602094240838,9.445000205318144e-42,4.911400106765435e-39
+gpt6-luna-balex,fs,bn,strategic_default,toward Strategic,110,54,56,0.6707317073170732,1.460983514936857e-05,0.004835855434440996
+gpt6-luna-balex,fs,bn,causal_yes,toward Yes (FP) vs No (FN),87,70,17,0.554140127388535,0.2014742324100292,1.0
+gpt6-luna-balex,fs,en,major_power_attribution,toward India/China/US/UN,24,24,0,0.5,1.0,1.0
+gpt6-luna-balex,fs,en,india_attribution,toward India,10,18,-8,0.35714285714285715,0.1849333420395851,1.0
+gpt6-luna-balex,fs,en,polarization,toward Pro-West/Pro-China,34,89,-55,0.2764227642276423,7.43200227229493e-07,0.000262349680212011
+gpt6-luna-balex,fs,en,pro_west,toward Pro-West,27,84,-57,0.24324324324324326,5.46197809541596e-08,2.037317829590153e-05
+gpt6-luna-balex,fs,en,non_aligned,toward Non-aligned,11,185,-174,0.05612244897959184,6.531606291817332e-42,3.40296687803683e-39
+gpt6-luna-balex,fs,en,strategic_default,toward Strategic,104,50,54,0.6753246753246753,1.6140444476738646e-05,0.0053263466773237535
+gpt6-luna-balex,fs,en,causal_yes,toward Yes (FP) vs No (FN),84,79,5,0.5153374233128835,0.7541603898054382,1.0
+gpt6-luna-codebook,fs,bn,major_power_attribution,toward India/China/US/UN,23,23,0,0.5,1.0,1.0
+gpt6-luna-codebook,fs,bn,india_attribution,toward India,11,19,-8,0.36666666666666664,0.20048842206597334,1.0
+gpt6-luna-codebook,fs,bn,polarization,toward Pro-West/Pro-China,31,85,-54,0.2672413793103448,5.444609183150127e-07,0.00019437254783845952
+gpt6-luna-codebook,fs,bn,pro_west,toward Pro-West,22,82,-60,0.21153846153846154,2.5683019697996157e-09,1.009342674131249e-06
+gpt6-luna-codebook,fs,bn,non_aligned,toward Non-aligned,32,91,-59,0.2601626016260163,9.738842158273571e-08,3.574155072086401e-05
+gpt6-luna-codebook,fs,bn,strategic_default,toward Strategic,116,55,61,0.6783625730994152,3.5645090524050856e-06,0.0012190620959225394
+gpt6-luna-codebook,fs,bn,causal_yes,toward Yes (FP) vs No (FN),95,67,28,0.5864197530864198,0.03357225212016405,1.0
+gpt6-luna-codebook,fs,en,major_power_attribution,toward India/China/US/UN,20,23,-3,0.46511627906976744,0.7607916425613439,1.0
+gpt6-luna-codebook,fs,en,india_attribution,toward India,8,18,-10,0.3076923076923077,0.07551869750022888,1.0
+gpt6-luna-codebook,fs,en,polarization,toward Pro-West/Pro-China,29,94,-65,0.23577235772357724,3.3927095067658785e-09,1.3209970788212064e-06
+gpt6-luna-codebook,fs,en,pro_west,toward Pro-West,19,89,-70,0.17592592592592593,5.13116239379527e-12,2.19100634215058e-09
+gpt6-luna-codebook,fs,en,non_aligned,toward Non-aligned,16,140,-124,0.10256410256410256,6.543821065454591e-26,3.265366711661841e-23
+gpt6-luna-codebook,fs,en,strategic_default,toward Strategic,117,52,65,0.6923076923076923,6.272187854845746e-07,0.0002220354500615394
+gpt6-luna-codebook,fs,en,causal_yes,toward Yes (FP) vs No (FN),98,70,28,0.5833333333333334,0.03692680427705728,1.0
+gpt6-luna-codebook,fs_cot,bn,major_power_attribution,toward India/China/US/UN,24,29,-5,0.4528301886792453,0.5831321542611763,1.0
+gpt6-luna-codebook,fs_cot,bn,india_attribution,toward India,12,21,-9,0.36363636363636365,0.16275565745308995,1.0
+gpt6-luna-codebook,fs_cot,bn,polarization,toward Pro-West/Pro-China,24,91,-67,0.20869565217391303,2.2576566137993826e-10,9.09678704188176e-08
+gpt6-luna-codebook,fs_cot,bn,pro_west,toward Pro-West,15,86,-71,0.1485148514851485,2.826933345572602e-13,1.2579853387798077e-10
+gpt6-luna-codebook,fs_cot,bn,non_aligned,toward Non-aligned,69,64,5,0.518796992481203,0.7288539386735833,1.0
+gpt6-luna-codebook,fs_cot,bn,strategic_default,toward Strategic,110,58,52,0.6547619047619048,7.370834538660173e-05,0.022775878724459936
+gpt6-luna-codebook,fs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),108,60,48,0.6428571428571429,0.0002636516495278535,0.07724993331166106
+gpt6-luna-codebook,fs_cot,en,major_power_attribution,toward India/China/US/UN,21,24,-3,0.4666666666666667,0.765991824244793,1.0
+gpt6-luna-codebook,fs_cot,en,india_attribution,toward India,7,16,-9,0.30434782608695654,0.0931396484375,1.0
+gpt6-luna-codebook,fs_cot,en,polarization,toward Pro-West/Pro-China,30,96,-66,0.23809523809523808,3.04462741798544e-09,1.1934939478502924e-06
+gpt6-luna-codebook,fs_cot,en,pro_west,toward Pro-West,20,92,-72,0.17857142857142858,3.1880856558543937e-12,1.377253003329098e-09
+gpt6-luna-codebook,fs_cot,en,non_aligned,toward Non-aligned,35,94,-59,0.2713178294573643,2.035172733143e-07,7.34697356664623e-05
+gpt6-luna-codebook,fs_cot,en,strategic_default,toward Strategic,117,54,63,0.6842105263157895,1.6396436768554903e-06,0.0005738752868994216
+gpt6-luna-codebook,fs_cot,en,causal_yes,toward Yes (FP) vs No (FN),110,58,52,0.6547619047619048,7.370834538660173e-05,0.022775878724459936
+gpt6-luna-codebook,zs,bn,major_power_attribution,toward India/China/US/UN,20,27,-7,0.425531914893617,0.38169339766321275,1.0
+gpt6-luna-codebook,zs,bn,india_attribution,toward India,9,20,-11,0.3103448275862069,0.06142834573984146,1.0
+gpt6-luna-codebook,zs,bn,polarization,toward Pro-West/Pro-China,47,85,-38,0.3560606060606061,0.0011951063526718705,0.3238738215740769
+gpt6-luna-codebook,zs,bn,pro_west,toward Pro-West,38,85,-47,0.3089430894308943,2.7204226739453194e-05,0.008814169463582835
+gpt6-luna-codebook,zs,bn,non_aligned,toward Non-aligned,5,227,-222,0.021551724137931036,1.5888169282111054e-60,8.420729719518858e-58
+gpt6-luna-codebook,zs,bn,strategic_default,toward Strategic,134,41,93,0.7657142857142857,1.0058013720236325e-12,4.395351995743274e-10
+gpt6-luna-codebook,zs,bn,causal_yes,toward Yes (FP) vs No (FN),87,78,9,0.5272727272727272,0.5335448936308462,1.0
+gpt6-luna-codebook,zs,en,major_power_attribution,toward India/China/US/UN,23,30,-7,0.4339622641509434,0.4101027163746913,1.0
+gpt6-luna-codebook,zs,en,india_attribution,toward India,9,24,-15,0.2727272727272727,0.013530986849218607,1.0
+gpt6-luna-codebook,zs,en,polarization,toward Pro-West/Pro-China,48,80,-32,0.375,0.005925206606743137,1.0
+gpt6-luna-codebook,zs,en,pro_west,toward Pro-West,38,78,-40,0.3275862068965517,0.00025826102405589305,0.07592874107243255
+gpt6-luna-codebook,zs,en,non_aligned,toward Non-aligned,4,239,-235,0.01646090534979424,2.0391429296977133e-65,1.0929806103179743e-62
+gpt6-luna-codebook,zs,en,strategic_default,toward Strategic,132,42,90,0.7586206896551724,4.960971192606209e-12,2.1232956704354575e-09
+gpt6-luna-codebook,zs,en,causal_yes,toward Yes (FP) vs No (FN),71,83,-12,0.461038961038961,0.37545688817317885,1.0
+gpt6-luna-codebook,zs_cot,bn,major_power_attribution,toward India/China/US/UN,21,36,-15,0.3684210526315789,0.06273668035582848,1.0
+gpt6-luna-codebook,zs_cot,bn,india_attribution,toward India,8,25,-17,0.24242424242424243,0.004551384132355452,1.0
+gpt6-luna-codebook,zs_cot,bn,polarization,toward Pro-West/Pro-China,44,77,-33,0.36363636363636365,0.0034509399701825403,0.8523821726350874
+gpt6-luna-codebook,zs_cot,bn,pro_west,toward Pro-West,32,76,-44,0.2962962962962963,2.7607869966245203e-05,0.008881979987453666
+gpt6-luna-codebook,zs_cot,bn,non_aligned,toward Non-aligned,12,209,-197,0.05429864253393665,1.315765112467664e-47,6.89460918933056e-45
+gpt6-luna-codebook,zs_cot,bn,strategic_default,toward Strategic,136,35,101,0.7953216374269005,2.933903289448426e-15,1.349595513146276e-12
+gpt6-luna-codebook,zs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),108,64,44,0.627906976744186,0.0009857426331598563,0.27107922411896046
+gpt6-luna-codebook,zs_cot,en,major_power_attribution,toward India/China/US/UN,21,24,-3,0.4666666666666667,0.765991824244793,1.0
+gpt6-luna-codebook,zs_cot,en,india_attribution,toward India,6,18,-12,0.25,0.022655844688415527,1.0
+gpt6-luna-codebook,zs_cot,en,polarization,toward Pro-West/Pro-China,44,79,-35,0.35772357723577236,0.002045039581843465,0.5337553308611444
+gpt6-luna-codebook,zs_cot,en,pro_west,toward Pro-West,28,76,-48,0.2692307692307692,2.736780589985052e-06,0.0009441893035448429
+gpt6-luna-codebook,zs_cot,en,non_aligned,toward Non-aligned,10,214,-204,0.044642857142857144,5.560315465049651e-51,2.930286250081166e-48
+gpt6-luna-codebook,zs_cot,en,strategic_default,toward Strategic,141,41,100,0.7747252747252747,4.757272808561312e-14,2.1598018550868356e-11
+gpt6-luna-codebook,zs_cot,en,causal_yes,toward Yes (FP) vs No (FN),89,72,17,0.5527950310559007,0.20717984725922267,1.0
+haiku55-balex,fs,bn,major_power_attribution,toward India/China/US/UN,33,31,2,0.515625,0.9006532462520334,1.0
+haiku55-balex,fs,bn,india_attribution,toward India,13,30,-17,0.3023255813953488,0.0137181850586785,1.0
+haiku55-balex,fs,bn,polarization,toward Pro-West/Pro-China,20,82,-62,0.19607843137254902,4.2948486907135817e-10,1.7179394762854326e-07
+haiku55-balex,fs,bn,pro_west,toward Pro-West,13,74,-61,0.14942528735632185,1.59389870813477e-11,6.710313561247382e-09
+haiku55-balex,fs,bn,non_aligned,toward Non-aligned,52,67,-15,0.4369747899159664,0.19915839818564512,1.0
+haiku55-balex,fs,bn,strategic_default,toward Strategic,146,33,113,0.8156424581005587,3.670710216134672e-18,1.758270193528508e-15
+haiku55-balex,fs,bn,causal_yes,toward Yes (FP) vs No (FN),58,102,-44,0.3625,0.0006293470747506883,0.1768465280049434
+haiku55-balex,fs,en,major_power_attribution,toward India/China/US/UN,20,29,-9,0.40816326530612246,0.2528697301676033,1.0
+haiku55-balex,fs,en,india_attribution,toward India,7,25,-18,0.21875,0.0021024015732109547,0.5466244090348482
+haiku55-balex,fs,en,polarization,toward Pro-West/Pro-China,16,78,-62,0.1702127659574468,5.784543378399463e-11,2.3832318719005787e-08
+haiku55-balex,fs,en,pro_west,toward Pro-West,11,73,-62,0.13095238095238096,2.2490938201170897e-12,9.76106717930817e-10
+haiku55-balex,fs,en,non_aligned,toward Non-aligned,68,50,18,0.576271186440678,0.11721294197631511,1.0
+haiku55-balex,fs,en,strategic_default,toward Strategic,148,32,116,0.8222222222222222,4.950239308117759e-19,2.405816303745231e-16
+haiku55-balex,fs,en,causal_yes,toward Yes (FP) vs No (FN),62,108,-46,0.36470588235294116,0.0005199074129192242,0.1481736126819789
+haiku55-codebook,fs,bn,major_power_attribution,toward India/China/US/UN,27,33,-6,0.45,0.5189580031896519,1.0
+haiku55-codebook,fs,bn,india_attribution,toward India,7,29,-22,0.19444444444444445,0.00031255115754902363,0.09095238684676588
+haiku55-codebook,fs,bn,polarization,toward Pro-West/Pro-China,22,78,-56,0.22,1.5905328473786136e-08,6.0758354769863045e-06
+haiku55-codebook,fs,bn,pro_west,toward Pro-West,17,70,-53,0.19540229885057472,8.35091635811369e-09,3.21510279787377e-06
+haiku55-codebook,fs,bn,non_aligned,toward Non-aligned,83,43,40,0.6587301587301587,0.0004639397870064175,0.13268677908383542
+haiku55-codebook,fs,bn,strategic_default,toward Strategic,137,40,97,0.7740112994350282,1.252700324341673e-13,5.637151459537529e-11
+haiku55-codebook,fs,bn,causal_yes,toward Yes (FP) vs No (FN),56,112,-56,0.3333333333333333,1.8638787920587e-05,0.006113522437952536
+haiku55-codebook,fs,en,major_power_attribution,toward India/China/US/UN,19,29,-10,0.3958333333333333,0.19341265286193737,1.0
+haiku55-codebook,fs,en,india_attribution,toward India,9,20,-11,0.3103448275862069,0.06142834573984146,1.0
+haiku55-codebook,fs,en,polarization,toward Pro-West/Pro-China,17,79,-62,0.17708333333333334,9.941513465364027e-11,4.0163714400070664e-08
+haiku55-codebook,fs,en,pro_west,toward Pro-West,13,72,-59,0.15294117647058825,4.628573788074828e-11,1.9254866958391283e-08
+haiku55-codebook,fs,en,non_aligned,toward Non-aligned,84,28,56,0.75,1.1106999545541781e-07,4.05405483412275e-05
+haiku55-codebook,fs,en,strategic_default,toward Strategic,130,44,86,0.7471264367816092,4.666585381449893e-11,1.9272997625388058e-08
+haiku55-codebook,fs,en,causal_yes,toward Yes (FP) vs No (FN),55,102,-47,0.3503184713375796,0.0002187649988710087,0.06475443966581858
+haiku55-codebook,fs_cot,bn,major_power_attribution,toward India/China/US/UN,14,32,-18,0.30434782608695654,0.011351591436778108,1.0
+haiku55-codebook,fs_cot,bn,india_attribution,toward India,6,24,-18,0.2,0.0014309063553810122,0.3849138095974923
+haiku55-codebook,fs_cot,bn,polarization,toward Pro-West/Pro-China,29,59,-30,0.32954545454545453,0.0018240286456271994,0.4797195337999534
+haiku55-codebook,fs_cot,bn,pro_west,toward Pro-West,20,59,-39,0.25316455696202533,1.2967077325175125e-05,0.004318036749283317
+haiku55-codebook,fs_cot,bn,non_aligned,toward Non-aligned,83,22,61,0.7904761904761904,1.617953173424923e-09,6.374735503294196e-07
+haiku55-codebook,fs_cot,bn,strategic_default,toward Strategic,109,65,44,0.6264367816091954,0.001055913532406377,0.2882643943469409
+haiku55-codebook,fs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),35,148,-113,0.1912568306010929,9.744445885419261e-18,4.628611795574149e-15
+haiku55-codebook,fs_cot,en,major_power_attribution,toward India/China/US/UN,13,28,-15,0.3170731707317073,0.027533155829587486,1.0
+haiku55-codebook,fs_cot,en,india_attribution,toward India,6,19,-13,0.24,0.01463329792022705,1.0
+haiku55-codebook,fs_cot,en,polarization,toward Pro-West/Pro-China,22,66,-44,0.25,2.8793907495367242e-06,0.0009876310270910964
+haiku55-codebook,fs_cot,en,pro_west,toward Pro-West,14,66,-52,0.175,3.1365426901467503e-09,1.2263881918473795e-06
+haiku55-codebook,fs_cot,en,non_aligned,toward Non-aligned,91,16,75,0.8504672897196262,6.449578410896073e-14,2.921659020135921e-11
+haiku55-codebook,fs_cot,en,strategic_default,toward Strategic,104,64,40,0.6190476190476191,0.002517989851685426,0.6370514324764128
+haiku55-codebook,fs_cot,en,causal_yes,toward Yes (FP) vs No (FN),31,133,-102,0.18902439024390244,2.980560240298678e-16,1.379999391258288e-13
+haiku55-codebook,zs,bn,major_power_attribution,toward India/China/US/UN,15,40,-25,0.2727272727272727,0.0010158471941252854,0.2783421311903282
+haiku55-codebook,zs,bn,india_attribution,toward India,4,33,-29,0.10810810810810811,1.0843941709026694e-06,0.00038170674815773964
+haiku55-codebook,zs,bn,polarization,toward Pro-West/Pro-China,19,71,-52,0.2111111111111111,3.127182277340457e-08,1.1852020831120331e-05
+haiku55-codebook,zs,bn,pro_west,toward Pro-West,13,66,-53,0.16455696202531644,1.0781441177091488e-09,4.2694507061282294e-07
+haiku55-codebook,zs,bn,non_aligned,toward Non-aligned,64,65,-1,0.49612403100775193,1.0,1.0
+haiku55-codebook,zs,bn,strategic_default,toward Strategic,150,33,117,0.819672131147541,5.081829175777584e-19,2.464687150252128e-16
+haiku55-codebook,zs,bn,causal_yes,toward Yes (FP) vs No (FN),42,130,-88,0.2441860465116279,1.1476713382583213e-11,4.854649760832699e-09
+haiku55-codebook,zs,en,major_power_attribution,toward India/China/US/UN,13,33,-20,0.2826086956521739,0.004533861582189047,1.0
+haiku55-codebook,zs,en,india_attribution,toward India,4,21,-17,0.16,0.0009105205535888672,0.2522141933441162
+haiku55-codebook,zs,en,polarization,toward Pro-West/Pro-China,16,77,-61,0.17204301075268819,9.629776957272856e-11,3.90968944465278e-08
+haiku55-codebook,zs,en,pro_west,toward Pro-West,13,72,-59,0.15294117647058825,4.628573788074828e-11,1.9254866958391283e-08
+haiku55-codebook,zs,en,non_aligned,toward Non-aligned,77,43,34,0.6416666666666667,0.0024468567628141724,0.624642145113354
+haiku55-codebook,zs,en,strategic_default,toward Strategic,137,33,104,0.8058823529411765,2.917999209196734e-16,1.3539516330672846e-13
+haiku55-codebook,zs,en,causal_yes,toward Yes (FP) vs No (FN),32,151,-119,0.17486338797814208,1.0995273889183846e-19,5.3656936579217167e-17
+haiku55-codebook,zs_cot,bn,major_power_attribution,toward India/China/US/UN,14,40,-26,0.25925925925925924,0.0005354355028570622,0.15206368281140567
+haiku55-codebook,zs_cot,bn,india_attribution,toward India,4,29,-25,0.12121212121212122,1.0928604751825333e-05,0.0036610825918614864
+haiku55-codebook,zs_cot,bn,polarization,toward Pro-West/Pro-China,49,37,12,0.5697674418604651,0.2353798622110552,1.0
+haiku55-codebook,zs_cot,bn,pro_west,toward Pro-West,38,37,1,0.5066666666666667,1.0,1.0
+haiku55-codebook,zs_cot,bn,non_aligned,toward Non-aligned,51,49,2,0.51,0.9204107626128221,1.0
+haiku55-codebook,zs_cot,bn,strategic_default,toward Strategic,137,49,88,0.7365591397849462,7.88860500830373e-11,3.226439448396225e-08
+haiku55-codebook,zs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),36,154,-118,0.18947368421052632,1.3939060080095595e-18,6.732566018686173e-16
+haiku55-codebook,zs_cot,en,major_power_attribution,toward India/China/US/UN,13,39,-26,0.25,0.0004095414537825804,0.11753839723560057
+haiku55-codebook,zs_cot,en,india_attribution,toward India,3,25,-22,0.10714285714285714,2.744048833847046e-05,0.008863277733325958
+haiku55-codebook,zs_cot,en,polarization,toward Pro-West/Pro-China,39,38,1,0.5064935064935064,1.0,1.0
+haiku55-codebook,zs_cot,en,pro_west,toward Pro-West,28,38,-10,0.42424242424242425,0.2678116648465871,1.0
+haiku55-codebook,zs_cot,en,non_aligned,toward Non-aligned,51,42,9,0.5483870967741935,0.40692436804613413,1.0
+haiku55-codebook,zs_cot,en,strategic_default,toward Strategic,124,59,65,0.6775956284153005,1.7594609769434547e-06,0.0006122924199763222
+haiku55-codebook,zs_cot,en,causal_yes,toward Yes (FP) vs No (FN),19,161,-142,0.10555555555555556,3.2134006834732375e-29,1.6131271431035652e-26
+llama31-8b-balex,fs,bn,major_power_attribution,toward India/China/US/UN,38,27,11,0.5846153846153846,0.2145391940081784,1.0
+llama31-8b-balex,fs,bn,india_attribution,toward India,13,29,-16,0.30952380952380953,0.019520472782460274,1.0
+llama31-8b-balex,fs,bn,polarization,toward Pro-West/Pro-China,46,89,-43,0.34074074074074073,0.00026979836784593006,0.07878112341101158
+llama31-8b-balex,fs,bn,pro_west,toward Pro-West,23,87,-64,0.20909090909090908,6.041171809636999e-10,2.4043863802355253e-07
+llama31-8b-balex,fs,bn,non_aligned,toward Non-aligned,44,137,-93,0.2430939226519337,2.5978547665788375e-12,1.1248711139286367e-09
+llama31-8b-balex,fs,bn,strategic_default,toward Strategic,191,12,179,0.9408866995073891,1.2175133841218984e-42,6.35541986511631e-40
+llama31-8b-balex,fs,bn,causal_yes,toward Yes (FP) vs No (FN),6,274,-268,0.02142857142857143,6.673771397495326e-73,3.58381524045499e-70
+llama31-8b-balex,fs,en,major_power_attribution,toward India/China/US/UN,34,16,18,0.68,0.015346677832630107,1.0
+llama31-8b-balex,fs,en,india_attribution,toward India,16,15,1,0.5161290322580645,1.0,1.0
+llama31-8b-balex,fs,en,polarization,toward Pro-West/Pro-China,67,94,-27,0.4161490683229814,0.040120543722473666,1.0
+llama31-8b-balex,fs,en,pro_west,toward Pro-West,40,91,-51,0.3053435114503817,9.79572915081534e-06,0.0032913649946739545
+llama31-8b-balex,fs,en,non_aligned,toward Non-aligned,43,149,-106,0.22395833333333334,6.858813482497534e-15,3.1413365749838704e-12
+llama31-8b-balex,fs,en,strategic_default,toward Strategic,175,24,151,0.8793969849246231,1.6272070820869612e-29,8.184851622897415e-27
+llama31-8b-balex,fs,en,causal_yes,toward Yes (FP) vs No (FN),49,145,-96,0.25257731958762886,3.2339078960318412e-12,1.3938143031897235e-09
+llama31-8b-codebook,fs,bn,major_power_attribution,toward India/China/US/UN,23,30,-7,0.4339622641509434,0.4101027163746913,1.0
+llama31-8b-codebook,fs,bn,india_attribution,toward India,7,29,-22,0.19444444444444445,0.00031255115754902363,0.09095238684676588
+llama31-8b-codebook,fs,bn,polarization,toward Pro-West/Pro-China,29,107,-78,0.21323529411764705,1.0531438510885942e-11,4.46532992861564e-09
+llama31-8b-codebook,fs,bn,pro_west,toward Pro-West,10,105,-95,0.08695652173913043,3.958305129534734e-21,1.943527818601554e-18
+llama31-8b-codebook,fs,bn,non_aligned,toward Non-aligned,138,18,120,0.8846153846153846,4.237106282920175e-24,2.101604716328407e-21
+llama31-8b-codebook,fs,bn,strategic_default,toward Strategic,103,79,24,0.5659340659340659,0.08794001140445894,1.0
+llama31-8b-codebook,fs,bn,causal_yes,toward Yes (FP) vs No (FN),35,221,-186,0.13671875,3.368761723744666e-34,1.7214372408335245e-31
+llama31-8b-codebook,fs,en,major_power_attribution,toward India/China/US/UN,32,20,12,0.6153846153846154,0.12634707581392135,1.0
+llama31-8b-codebook,fs,en,india_attribution,toward India,14,18,-4,0.4375,0.5966148958541453,1.0
+llama31-8b-codebook,fs,en,polarization,toward Pro-West/Pro-China,105,77,28,0.5769230769230769,0.04505458205192091,1.0
+llama31-8b-codebook,fs,en,pro_west,toward Pro-West,42,87,-45,0.32558139534883723,9.206613802682571e-05,0.02789603982212819
+llama31-8b-codebook,fs,en,non_aligned,toward Non-aligned,95,88,7,0.5191256830601093,0.657498915377593,1.0
+llama31-8b-codebook,fs,en,strategic_default,toward Strategic,102,81,21,0.5573770491803278,0.1390761772764311,1.0
+llama31-8b-codebook,fs,en,causal_yes,toward Yes (FP) vs No (FN),55,122,-67,0.3107344632768362,5.194305648357304e-07,0.0001859561422111915
+llama31-8b-codebook,fs_cot,bn,major_power_attribution,toward India/China/US/UN,14,28,-14,0.3333333333333333,0.04355852192384191,1.0
+llama31-8b-codebook,fs_cot,bn,india_attribution,toward India,4,26,-22,0.13333333333333333,5.9476122260093696e-05,0.018616026267409328
+llama31-8b-codebook,fs_cot,bn,polarization,toward Pro-West/Pro-China,42,112,-70,0.2727272727272727,1.5361489235286894e-08,5.883450377114881e-06
+llama31-8b-codebook,fs_cot,bn,pro_west,toward Pro-West,17,104,-87,0.14049586776859505,1.9786177986614588e-16,9.200572763775784e-14
+llama31-8b-codebook,fs_cot,bn,non_aligned,toward Non-aligned,142,31,111,0.8208092485549133,3.543361962082259e-18,1.7008137417994843e-15
+llama31-8b-codebook,fs_cot,bn,strategic_default,toward Strategic,49,140,-91,0.25925925925925924,2.4127943754740865e-11,1.0109608433236423e-08
+llama31-8b-codebook,fs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),54,206,-152,0.2076923076923077,4.315239407461831e-22,2.1274130278786827e-19
+llama31-8b-codebook,fs_cot,en,major_power_attribution,toward India/China/US/UN,20,25,-5,0.4444444444444444,0.5514843298025198,1.0
+llama31-8b-codebook,fs_cot,en,india_attribution,toward India,9,20,-11,0.3103448275862069,0.06142834573984146,1.0
+llama31-8b-codebook,fs_cot,en,polarization,toward Pro-West/Pro-China,97,89,8,0.521505376344086,0.6078857641460882,1.0
+llama31-8b-codebook,fs_cot,en,pro_west,toward Pro-West,45,99,-54,0.3125,7.952538678129078e-06,0.0026879580732076286
+llama31-8b-codebook,fs_cot,en,non_aligned,toward Non-aligned,110,79,31,0.582010582010582,0.028828250312142194,1.0
+llama31-8b-codebook,fs_cot,en,strategic_default,toward Strategic,73,127,-54,0.365,0.00016418525031640068,0.0490913898446038
+llama31-8b-codebook,fs_cot,en,causal_yes,toward Yes (FP) vs No (FN),88,106,-18,0.4536082474226804,0.22216821268362838,1.0
+llama31-8b-codebook,zs,bn,major_power_attribution,toward India/China/US/UN,37,21,16,0.6379310344827587,0.047940324071666984,1.0
+llama31-8b-codebook,zs,bn,india_attribution,toward India,14,22,-8,0.3888888888888889,0.24298495403490966,1.0
+llama31-8b-codebook,zs,bn,polarization,toward Pro-West/Pro-China,198,36,162,0.8461538461538461,2.7158916600057907e-28,1.3606617216629011e-25
+llama31-8b-codebook,zs,bn,pro_west,toward Pro-West,84,61,23,0.5793103448275863,0.06732947143058461,1.0
+llama31-8b-codebook,zs,bn,non_aligned,toward Non-aligned,49,169,-120,0.22477064220183487,1.2126115034698618e-16,5.650769606169556e-14
+llama31-8b-codebook,zs,bn,strategic_default,toward Strategic,138,47,91,0.745945945945946,1.4099066704918674e-11,5.9498061494756806e-09
+llama31-8b-codebook,zs,bn,causal_yes,toward Yes (FP) vs No (FN),7,249,-242,0.02734375,2.3385718007971947e-64,1.2511359134264992e-61
+llama31-8b-codebook,zs,en,major_power_attribution,toward India/China/US/UN,40,14,26,0.7407407407407407,0.0005354355028570622,0.15206368281140567
+llama31-8b-codebook,zs,en,india_attribution,toward India,18,12,6,0.6,0.36159460805356514,1.0
+llama31-8b-codebook,zs,en,polarization,toward Pro-West/Pro-China,152,37,115,0.8042328042328042,9.459176223023855e-18,4.502567882159355e-15
+llama31-8b-codebook,zs,en,pro_west,toward Pro-West,87,53,34,0.6214285714285714,0.0051025568098297626,1.0
+llama31-8b-codebook,zs,en,non_aligned,toward Non-aligned,53,131,-78,0.28804347826086957,8.294072975022163e-09,3.201512168358555e-06
+llama31-8b-codebook,zs,en,strategic_default,toward Strategic,145,46,99,0.7591623036649214,3.8621376391264534e-13,1.7109269741330188e-10
+llama31-8b-codebook,zs,en,causal_yes,toward Yes (FP) vs No (FN),8,231,-223,0.03347280334728033,5.4988601877248915e-58,2.9088970393064676e-55
+llama31-8b-codebook,zs_cot,bn,major_power_attribution,toward India/China/US/UN,20,44,-24,0.3125,0.0036899642765400487,0.9040412477523119
+llama31-8b-codebook,zs_cot,bn,india_attribution,toward India,10,37,-27,0.2127659574468085,9.848878492846323e-05,0.029743613048395897
+llama31-8b-codebook,zs_cot,bn,polarization,toward Pro-West/Pro-China,169,25,144,0.8711340206185567,1.8720591118709497e-27,9.36029555935475e-25
+llama31-8b-codebook,zs_cot,bn,pro_west,toward Pro-West,79,46,33,0.632,0.004024733785229442,0.9578866408846073
+llama31-8b-codebook,zs_cot,bn,non_aligned,toward Non-aligned,36,148,-112,0.1956521739130435,2.511869641129796e-17,1.1805787313310042e-14
+llama31-8b-codebook,zs_cot,bn,strategic_default,toward Strategic,97,78,19,0.5542857142857143,0.17344372797398389,1.0
+llama31-8b-codebook,zs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),28,218,-190,0.11382113821138211,1.1886334551367305e-37,6.13334862850553e-35
+llama31-8b-codebook,zs_cot,en,major_power_attribution,toward India/China/US/UN,35,19,16,0.6481481481481481,0.04022356409571669,1.0
+llama31-8b-codebook,zs_cot,en,india_attribution,toward India,22,14,8,0.6111111111111112,0.24298495403490966,1.0
+llama31-8b-codebook,zs_cot,en,polarization,toward Pro-West/Pro-China,165,37,128,0.8168316831683168,1.7129096998382894e-20,8.393257529207618e-18
+llama31-8b-codebook,zs_cot,en,pro_west,toward Pro-West,93,46,47,0.6690647482014388,8.273710817885538e-05,0.02523481799455089
+llama31-8b-codebook,zs_cot,en,non_aligned,toward Non-aligned,50,140,-90,0.2631578947368421,4.63308705484595e-11,1.9254866958391283e-08
+llama31-8b-codebook,zs_cot,en,strategic_default,toward Strategic,123,66,57,0.6507936507936508,4.090026923466997e-05,0.01296538534739038
+llama31-8b-codebook,zs_cot,en,causal_yes,toward Yes (FP) vs No (FN),29,204,-175,0.12446351931330472,1.393046026857893e-33,7.076673816438096e-31
+majority-class,sup,bn,major_power_attribution,toward India/China/US/UN,295,0,295,1.0,3.141819817790545e-89,1.706008161060266e-86
+majority-class,sup,bn,india_attribution,toward India,336,0,336,1.0,1.4287342391028437e-101,7.800888945501527e-99
+majority-class,sup,bn,polarization,toward Pro-West/Pro-China,0,167,-167,0.0,1.0691058840368783e-50,5.62349695003398e-48
+majority-class,sup,bn,pro_west,toward Pro-West,0,137,-137,0.0,1.1479437019748901e-41,5.95782781324968e-39
+majority-class,sup,bn,non_aligned,toward Non-aligned,209,0,209,1.0,2.4308653429145085e-63,1.2932203624305185e-60
+majority-class,sup,bn,strategic_default,toward Strategic,280,0,280,1.0,1.0295115178936058e-84,5.569657311804407e-82
+majority-class,sup,bn,causal_yes,toward Yes (FP) vs No (FN),210,0,210,1.0,1.2154326714572542e-63,6.490410465581738e-61
+majority-class,sup,en,major_power_attribution,toward India/China/US/UN,295,0,295,1.0,3.141819817790545e-89,1.706008161060266e-86
+majority-class,sup,en,india_attribution,toward India,336,0,336,1.0,1.4287342391028437e-101,7.800888945501527e-99
+majority-class,sup,en,polarization,toward Pro-West/Pro-China,0,167,-167,0.0,1.0691058840368783e-50,5.62349695003398e-48
+majority-class,sup,en,pro_west,toward Pro-West,0,137,-137,0.0,1.1479437019748901e-41,5.95782781324968e-39
+majority-class,sup,en,non_aligned,toward Non-aligned,209,0,209,1.0,2.4308653429145085e-63,1.2932203624305185e-60
+majority-class,sup,en,strategic_default,toward Strategic,280,0,280,1.0,1.0295115178936058e-84,5.569657311804407e-82
+majority-class,sup,en,causal_yes,toward Yes (FP) vs No (FN),210,0,210,1.0,1.2154326714572542e-63,6.490410465581738e-61
+mdeberta-nli,zs,bn,major_power_attribution,toward India/China/US/UN,13,163,-150,0.07386363636363637,3.593717406712669e-34,1.8292021600167484e-31
+mdeberta-nli,zs,bn,india_attribution,toward India,3,152,-149,0.01935483870967742,2.718413923405321e-41,1.4054199984005508e-38
+mdeberta-nli,zs,bn,polarization,toward Pro-West/Pro-China,32,143,-111,0.18285714285714286,5.935228274015915e-18,2.8311038867055917e-15
+mdeberta-nli,zs,bn,pro_west,toward Pro-West,28,123,-95,0.18543046357615894,2.1008289315736506e-15,9.68482137455453e-13
+mdeberta-nli,zs,bn,non_aligned,toward Non-aligned,8,301,-293,0.025889967637540454,3.7055407327864876e-78,1.9935809142391302e-75
+mdeberta-nli,zs,bn,strategic_default,toward Strategic,175,93,82,0.6529850746268657,6.188500117407868e-07,0.0002196917541679793
+mdeberta-nli,zs,bn,causal_yes,toward Yes (FP) vs No (FN),150,113,37,0.5703422053231939,0.026240469546453458,1.0
+mdeberta-nli,zs,en,major_power_attribution,toward India/China/US/UN,18,186,-168,0.08823529411764706,2.3233688870340712e-36,1.1918882390484785e-33
+mdeberta-nli,zs,en,india_attribution,toward India,8,158,-150,0.04819277108433735,2.711909456947034e-37,1.3966333703277225e-34
+mdeberta-nli,zs,en,polarization,toward Pro-West/Pro-China,10,156,-146,0.060240963855421686,7.580523251279813e-35,3.8812279046552643e-32
+mdeberta-nli,zs,en,pro_west,toward Pro-West,6,136,-130,0.04225352112676056,3.836919038456073e-33,1.9414810334587728e-30
+mdeberta-nli,zs,en,non_aligned,toward Non-aligned,5,300,-295,0.01639344262295082,6.639561688344555e-82,3.578723750017715e-79
+mdeberta-nli,zs,en,strategic_default,toward Strategic,152,88,64,0.6333333333333333,4.329805997186388e-05,0.013595590831165258
+mdeberta-nli,zs,en,causal_yes,toward Yes (FP) vs No (FN),96,133,-37,0.4192139737991266,0.017171542799742416,1.0
+ministral3-14b-balex,fs,bn,major_power_attribution,toward India/China/US/UN,31,17,14,0.6458333333333334,0.05946337525377034,1.0
+ministral3-14b-balex,fs,bn,india_attribution,toward India,9,12,-3,0.42857142857142855,0.6636238098144531,1.0
+ministral3-14b-balex,fs,bn,polarization,toward Pro-West/Pro-China,118,32,86,0.7866666666666666,8.839070431755038e-13,3.880351919540462e-10
+ministral3-14b-balex,fs,bn,pro_west,toward Pro-West,86,38,48,0.6935483870967742,1.9451913271625677e-05,0.006360775639821596
+ministral3-14b-balex,fs,bn,non_aligned,toward Non-aligned,34,120,-86,0.22077922077922077,1.8953053686021684e-12,8.244578353419433e-10
+ministral3-14b-balex,fs,bn,strategic_default,toward Strategic,113,57,56,0.6647058823529411,2.0959052717667597e-05,0.006832651185959637
+ministral3-14b-balex,fs,bn,causal_yes,toward Yes (FP) vs No (FN),112,53,59,0.6787878787878788,5.076173568329702e-06,0.0017309751868004285
+ministral3-14b-balex,fs,en,major_power_attribution,toward India/China/US/UN,34,17,17,0.6666666666666666,0.024092907698449295,1.0
+ministral3-14b-balex,fs,en,india_attribution,toward India,11,16,-5,0.4074074074074074,0.44206833839416504,1.0
+ministral3-14b-balex,fs,en,polarization,toward Pro-West/Pro-China,141,31,110,0.8197674418604651,5.827889659702132e-18,2.785731257337619e-15
+ministral3-14b-balex,fs,en,pro_west,toward Pro-West,98,37,61,0.725925925925926,1.5020945707319435e-07,5.4676242374642745e-05
+ministral3-14b-balex,fs,en,non_aligned,toward Non-aligned,28,132,-104,0.175,2.3899444607950766e-17,1.1256638410344811e-14
+ministral3-14b-balex,fs,en,strategic_default,toward Strategic,123,52,71,0.7028571428571428,8.14781785489015e-08,3.0065447884544652e-05
+ministral3-14b-balex,fs,en,causal_yes,toward Yes (FP) vs No (FN),114,52,62,0.6867469879518072,1.6837810633586015e-06,0.0005876395911121519
+ministral3-14b-codebook,fs,bn,major_power_attribution,toward India/China/US/UN,26,21,5,0.5531914893617021,0.5600646295802106,1.0
+ministral3-14b-codebook,fs,bn,india_attribution,toward India,6,18,-12,0.25,0.022655844688415527,1.0
+ministral3-14b-codebook,fs,bn,polarization,toward Pro-West/Pro-China,91,43,48,0.6791044776119403,4.111304765431349e-05,0.012991723058763062
+ministral3-14b-codebook,fs,bn,pro_west,toward Pro-West,58,50,8,0.5370370370370371,0.5007663934164358,1.0
+ministral3-14b-codebook,fs,bn,non_aligned,toward Non-aligned,58,73,-15,0.44274809160305345,0.22111601916299542,1.0
+ministral3-14b-codebook,fs,bn,strategic_default,toward Strategic,100,75,25,0.5714285714285714,0.06933702412999178,1.0
+ministral3-14b-codebook,fs,bn,causal_yes,toward Yes (FP) vs No (FN),99,59,40,0.6265822784810127,0.0018263613254347025,0.4797195337999534
+ministral3-14b-codebook,fs,en,major_power_attribution,toward India/China/US/UN,31,20,11,0.6078431372549019,0.16077960181198847,1.0
+ministral3-14b-codebook,fs,en,india_attribution,toward India,11,18,-7,0.3793103448275862,0.26493089646101,1.0
+ministral3-14b-codebook,fs,en,polarization,toward Pro-West/Pro-China,107,39,68,0.7328767123287672,1.6312842830886965e-08,6.215193118567934e-06
+ministral3-14b-codebook,fs,en,pro_west,toward Pro-West,66,45,21,0.5945945945945946,0.05716364524660185,1.0
+ministral3-14b-codebook,fs,en,non_aligned,toward Non-aligned,49,83,-34,0.3712121212121212,0.003905121708027013,0.9372292099264832
+ministral3-14b-codebook,fs,en,strategic_default,toward Strategic,104,70,34,0.5977011494252874,0.012138156118372974,1.0
+ministral3-14b-codebook,fs,en,causal_yes,toward Yes (FP) vs No (FN),115,57,58,0.6686046511627907,1.1573926946530593e-05,0.003865691600141218
+ministral3-14b-codebook,fs_cot,bn,major_power_attribution,toward India/China/US/UN,19,23,-4,0.4523809523809524,0.6439689563703723,1.0
+ministral3-14b-codebook,fs_cot,bn,india_attribution,toward India,8,19,-11,0.2962962962962963,0.052238985896110535,1.0
+ministral3-14b-codebook,fs_cot,bn,polarization,toward Pro-West/Pro-China,87,38,49,0.696,1.3863036120401227e-05,0.004602527991973207
+ministral3-14b-codebook,fs_cot,bn,pro_west,toward Pro-West,63,45,18,0.5833333333333334,0.10143273504110485,1.0
+ministral3-14b-codebook,fs_cot,bn,non_aligned,toward Non-aligned,51,69,-18,0.425,0.12032782773865805,1.0
+ministral3-14b-codebook,fs_cot,bn,strategic_default,toward Strategic,94,72,22,0.5662650602409639,0.10283252418776904,1.0
+ministral3-14b-codebook,fs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),133,37,96,0.7823529411764706,6.513945743392775e-14,2.944303476013534e-11
+ministral3-14b-codebook,fs_cot,en,major_power_attribution,toward India/China/US/UN,25,26,-1,0.49019607843137253,1.0,1.0
+ministral3-14b-codebook,fs_cot,en,india_attribution,toward India,10,18,-8,0.35714285714285715,0.1849333420395851,1.0
+ministral3-14b-codebook,fs_cot,en,polarization,toward Pro-West/Pro-China,98,42,56,0.7,2.4915373480835904e-06,0.0008620719224369223
+ministral3-14b-codebook,fs_cot,en,pro_west,toward Pro-West,74,43,31,0.6324786324786325,0.005319279348701682,1.0
+ministral3-14b-codebook,fs_cot,en,non_aligned,toward Non-aligned,52,82,-30,0.3880597014925373,0.011951543889931084,1.0
+ministral3-14b-codebook,fs_cot,en,strategic_default,toward Strategic,105,73,32,0.5898876404494382,0.01989186079812235,1.0
+ministral3-14b-codebook,fs_cot,en,causal_yes,toward Yes (FP) vs No (FN),126,42,84,0.75,6.009507673225859e-11,2.4699076536958282e-08
+ministral3-14b-codebook,zs,bn,major_power_attribution,toward India/China/US/UN,24,22,2,0.5217391304347826,0.8829959121223965,1.0
+ministral3-14b-codebook,zs,bn,india_attribution,toward India,8,20,-12,0.2857142857142857,0.03569813817739487,1.0
+ministral3-14b-codebook,zs,bn,polarization,toward Pro-West/Pro-China,101,39,62,0.7214285714285714,1.6065634901570444e-07,5.815759834368501e-05
+ministral3-14b-codebook,zs,bn,pro_west,toward Pro-West,67,43,24,0.6090909090909091,0.027850888125662245,1.0
+ministral3-14b-codebook,zs,bn,non_aligned,toward Non-aligned,58,80,-22,0.42028985507246375,0.07345060421252654,1.0
+ministral3-14b-codebook,zs,bn,strategic_default,toward Strategic,112,64,48,0.6363636363636364,0.00036713039376409914,0.10610068379782465
+ministral3-14b-codebook,zs,bn,causal_yes,toward Yes (FP) vs No (FN),59,98,-39,0.37579617834394907,0.002317473463870318,0.5955906802146718
+ministral3-14b-codebook,zs,en,major_power_attribution,toward India/China/US/UN,27,19,8,0.5869565217391305,0.3019956131896606,1.0
+ministral3-14b-codebook,zs,en,india_attribution,toward India,9,18,-9,0.3333333333333333,0.12207812070846558,1.0
+ministral3-14b-codebook,zs,en,polarization,toward Pro-West/Pro-China,106,41,65,0.7210884353741497,8.08924594039042e-08,2.9930209979444554e-05
+ministral3-14b-codebook,zs,en,pro_west,toward Pro-West,76,45,31,0.628099173553719,0.0061508081499953545,1.0
+ministral3-14b-codebook,zs,en,non_aligned,toward Non-aligned,55,80,-25,0.4074074074074074,0.038471500325522025,1.0
+ministral3-14b-codebook,zs,en,strategic_default,toward Strategic,122,61,61,0.6666666666666666,7.655797273791237e-06,0.0025953152758152295
+ministral3-14b-codebook,zs,en,causal_yes,toward Yes (FP) vs No (FN),68,95,-27,0.4171779141104294,0.041372422999386,1.0
+ministral3-14b-codebook,zs_cot,bn,major_power_attribution,toward India/China/US/UN,18,26,-8,0.4090909090909091,0.2912152365458951,1.0
+ministral3-14b-codebook,zs_cot,bn,india_attribution,toward India,7,24,-17,0.22580645161290322,0.003326892852783203,0.8250694274902344
+ministral3-14b-codebook,zs_cot,bn,polarization,toward Pro-West/Pro-China,106,36,70,0.7464788732394366,3.3871719969774525e-09,1.3209970788212064e-06
+ministral3-14b-codebook,zs_cot,bn,pro_west,toward Pro-West,83,41,42,0.6693548387096774,0.000203788740361683,0.06052525588741985
+ministral3-14b-codebook,zs_cot,bn,non_aligned,toward Non-aligned,51,87,-36,0.3695652173913043,0.002754339804126485,0.6885849510316213
+ministral3-14b-codebook,zs_cot,bn,strategic_default,toward Strategic,105,66,39,0.6140350877192983,0.0035379775075490907,0.8703424668570763
+ministral3-14b-codebook,zs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),103,60,43,0.6319018404907976,0.0009442928025158654,0.2606248134943788
+ministral3-14b-codebook,zs_cot,en,major_power_attribution,toward India/China/US/UN,19,22,-3,0.4634146341463415,0.755228657504631,1.0
+ministral3-14b-codebook,zs_cot,en,india_attribution,toward India,7,20,-13,0.25925925925925924,0.0191572904586792,1.0
+ministral3-14b-codebook,zs_cot,en,polarization,toward Pro-West/Pro-China,110,35,75,0.7586206896551724,3.1877570240121074e-10,1.2782905666288551e-07
+ministral3-14b-codebook,zs_cot,en,pro_west,toward Pro-West,84,41,43,0.672,0.0001501334225702843,0.04504002677108528
+ministral3-14b-codebook,zs_cot,en,non_aligned,toward Non-aligned,50,88,-38,0.36231884057971014,0.0015398549685237176,0.4111412765958326
+ministral3-14b-codebook,zs_cot,en,strategic_default,toward Strategic,112,72,40,0.6086956521739131,0.003917460831386641,0.9372292099264832
+ministral3-14b-codebook,zs_cot,en,causal_yes,toward Yes (FP) vs No (FN),84,69,15,0.5490196078431373,0.2576337765467225,1.0
+qwen38-27b-balex,fs,bn,major_power_attribution,toward India/China/US/UN,20,17,3,0.5405405405405406,0.7428293587290682,1.0
+qwen38-27b-balex,fs,bn,india_attribution,toward India,9,14,-5,0.391304347826087,0.4048728942871094,1.0
+qwen38-27b-balex,fs,bn,polarization,toward Pro-West/Pro-China,123,31,92,0.7987012987012987,3.597132741186339e-14,1.6402925299809705e-11
+qwen38-27b-balex,fs,bn,pro_west,toward Pro-West,102,30,72,0.7727272727272727,2.2572672560500646e-10,9.09678704188176e-08
+qwen38-27b-balex,fs,bn,non_aligned,toward Non-aligned,32,121,-89,0.20915032679738563,2.2261545369406011e-13,9.928649234755081e-11
+qwen38-27b-balex,fs,bn,strategic_default,toward Strategic,94,65,29,0.5911949685534591,0.026070187610561686,1.0
+qwen38-27b-balex,fs,bn,causal_yes,toward Yes (FP) vs No (FN),67,99,-32,0.4036144578313253,0.015868784059188682,1.0
+qwen38-27b-balex,fs,en,major_power_attribution,toward India/China/US/UN,24,19,5,0.5581395348837209,0.542384011856484,1.0
+qwen38-27b-balex,fs,en,india_attribution,toward India,9,15,-6,0.375,0.30745625495910645,1.0
+qwen38-27b-balex,fs,en,polarization,toward Pro-West/Pro-China,118,31,87,0.7919463087248322,3.729582021548868e-13,1.6559344175676974e-10
+qwen38-27b-balex,fs,en,pro_west,toward Pro-West,100,31,69,0.7633587786259542,1.1612274833072096e-09,4.586848559063478e-07
+qwen38-27b-balex,fs,en,non_aligned,toward Non-aligned,33,121,-88,0.21428571428571427,5.251232042625476e-13,2.3210445628404606e-10
+qwen38-27b-balex,fs,en,strategic_default,toward Strategic,107,53,54,0.66875,2.361287151444952e-05,0.007674183242196093
+qwen38-27b-balex,fs,en,causal_yes,toward Yes (FP) vs No (FN),66,91,-25,0.42038216560509556,0.05509346886796192,1.0
+qwen38-27b-codebook,fs,bn,major_power_attribution,toward India/China/US/UN,16,27,-11,0.37209302325581395,0.12628947438543037,1.0
+qwen38-27b-codebook,fs,bn,india_attribution,toward India,6,22,-16,0.21428571428571427,0.0037191659212112427,0.9074764847755432
+qwen38-27b-codebook,fs,bn,polarization,toward Pro-West/Pro-China,64,42,22,0.6037735849056604,0.04087197060775479,1.0
+qwen38-27b-codebook,fs,bn,pro_west,toward Pro-West,49,40,9,0.550561797752809,0.39657015814551616,1.0
+qwen38-27b-codebook,fs,bn,non_aligned,toward Non-aligned,58,45,13,0.5631067961165048,0.2369018777802925,1.0
+qwen38-27b-codebook,fs,bn,strategic_default,toward Strategic,72,81,-9,0.47058823529411764,0.5179210307990446,1.0
+qwen38-27b-codebook,fs,bn,causal_yes,toward Yes (FP) vs No (FN),85,85,0,0.5,1.0,1.0
+qwen38-27b-codebook,fs,en,major_power_attribution,toward India/China/US/UN,18,23,-5,0.43902439024390244,0.5327092552361137,1.0
+qwen38-27b-codebook,fs,en,india_attribution,toward India,6,17,-11,0.2608695652173913,0.03468966484069824,1.0
+qwen38-27b-codebook,fs,en,polarization,toward Pro-West/Pro-China,69,37,32,0.6509433962264151,0.002440008379349039,0.624642145113354
+qwen38-27b-codebook,fs,en,pro_west,toward Pro-West,53,37,16,0.5888888888888889,0.11334435404342058,1.0
+qwen38-27b-codebook,fs,en,non_aligned,toward Non-aligned,53,51,2,0.5096153846153846,0.921948827626431,1.0
+qwen38-27b-codebook,fs,en,strategic_default,toward Strategic,87,72,15,0.5471698113207547,0.2668252636003217,1.0
+qwen38-27b-codebook,fs,en,causal_yes,toward Yes (FP) vs No (FN),86,76,10,0.5308641975308642,0.47961516880825333,1.0
+qwen38-27b-codebook,fs_cot,bn,major_power_attribution,toward India/China/US/UN,20,28,-8,0.4166666666666667,0.31232680747326935,1.0
+qwen38-27b-codebook,fs_cot,bn,india_attribution,toward India,7,25,-18,0.21875,0.0021024015732109547,0.5466244090348482
+qwen38-27b-codebook,fs_cot,bn,polarization,toward Pro-West/Pro-China,59,49,10,0.5462962962962963,0.3865726089882611,1.0
+qwen38-27b-codebook,fs_cot,bn,pro_west,toward Pro-West,44,46,-2,0.4888888888888889,0.9161288770112896,1.0
+qwen38-27b-codebook,fs_cot,bn,non_aligned,toward Non-aligned,68,42,26,0.6181818181818182,0.01674502147823378,1.0
+qwen38-27b-codebook,fs_cot,bn,strategic_default,toward Strategic,90,68,22,0.569620253164557,0.09447453522193175,1.0
+qwen38-27b-codebook,fs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),119,45,74,0.725609756097561,6.677364261390676e-09,2.5841399691581914e-06
+qwen38-27b-codebook,fs_cot,en,major_power_attribution,toward India/China/US/UN,19,27,-8,0.41304347826086957,0.3019956131896606,1.0
+qwen38-27b-codebook,fs_cot,en,india_attribution,toward India,6,24,-18,0.2,0.0014309063553810122,0.3849138095974923
+qwen38-27b-codebook,fs_cot,en,polarization,toward Pro-West/Pro-China,68,47,21,0.591304347826087,0.06170860823922408,1.0
+qwen38-27b-codebook,fs_cot,en,pro_west,toward Pro-West,51,46,5,0.5257731958762887,0.684858777214404,1.0
+qwen38-27b-codebook,fs_cot,en,non_aligned,toward Non-aligned,64,48,16,0.5714285714285714,0.15606630199376736,1.0
+qwen38-27b-codebook,fs_cot,en,strategic_default,toward Strategic,92,71,21,0.5644171779141104,0.11695440246353744,1.0
+qwen38-27b-codebook,fs_cot,en,causal_yes,toward Yes (FP) vs No (FN),117,48,69,0.7090909090909091,7.834135206720721e-08,2.9064641616933877e-05
+qwen38-27b-codebook,zs,bn,major_power_attribution,toward India/China/US/UN,12,26,-14,0.3157894736842105,0.03355243967962451,1.0
+qwen38-27b-codebook,zs,bn,india_attribution,toward India,4,19,-15,0.17391304347826086,0.002599477767944336,0.6550683975219727
+qwen38-27b-codebook,zs,bn,polarization,toward Pro-West/Pro-China,183,26,157,0.8755980861244019,2.9173563197193858e-30,1.4703475851385705e-27
+qwen38-27b-codebook,zs,bn,pro_west,toward Pro-West,150,25,125,0.8571428571428571,6.338922637856922e-23,3.137766705739176e-20
+qwen38-27b-codebook,zs,bn,non_aligned,toward Non-aligned,33,160,-127,0.17098445595854922,3.345621616539115e-21,1.6460458353372445e-18
+qwen38-27b-codebook,zs,bn,strategic_default,toward Strategic,78,88,-10,0.46987951807228917,0.4849565608422813,1.0
+qwen38-27b-codebook,zs,bn,causal_yes,toward Yes (FP) vs No (FN),95,80,15,0.5428571428571428,0.2898925237752056,1.0
+qwen38-27b-codebook,zs,en,major_power_attribution,toward India/China/US/UN,20,24,-4,0.45454545454545453,0.651587827208914,1.0
+qwen38-27b-codebook,zs,en,india_attribution,toward India,10,16,-6,0.38461538461538464,0.32693958282470703,1.0
+qwen38-27b-codebook,zs,en,polarization,toward Pro-West/Pro-China,169,30,139,0.8492462311557789,1.050720972221581e-24,5.232590441663473e-22
+qwen38-27b-codebook,zs,en,pro_west,toward Pro-West,145,31,114,0.8238636363636364,7.90612239659779e-19,3.8265632399533304e-16
+qwen38-27b-codebook,zs,en,non_aligned,toward Non-aligned,34,145,-111,0.18994413407821228,1.5931292884888045e-17,7.519570241667157e-15
+qwen38-27b-codebook,zs,en,strategic_default,toward Strategic,87,76,11,0.5337423312883436,0.4335671268286528,1.0
+qwen38-27b-codebook,zs,en,causal_yes,toward Yes (FP) vs No (FN),82,77,5,0.5157232704402516,0.7511907919533753,1.0
+qwen38-27b-codebook,zs_cot,bn,major_power_attribution,toward India/China/US/UN,19,34,-15,0.3584905660377358,0.053438810537711046,1.0
+qwen38-27b-codebook,zs_cot,bn,india_attribution,toward India,7,27,-20,0.20588235294117646,0.0008213953115046024,0.22999068722128868
+qwen38-27b-codebook,zs_cot,bn,polarization,toward Pro-West/Pro-China,143,31,112,0.8218390804597702,2.151730653320861e-18,1.037134174900655e-15
+qwen38-27b-codebook,zs_cot,bn,pro_west,toward Pro-West,109,30,79,0.7841726618705036,9.85182810302137e-12,4.187026943784082e-09
+qwen38-27b-codebook,zs_cot,bn,non_aligned,toward Non-aligned,40,127,-87,0.23952095808383234,9.451719537104616e-12,4.026432522806566e-09
+qwen38-27b-codebook,zs_cot,bn,strategic_default,toward Strategic,108,65,43,0.6242774566473989,0.0013382290107702656,0.3613218329079717
+qwen38-27b-codebook,zs_cot,bn,causal_yes,toward Yes (FP) vs No (FN),146,34,112,0.8111111111111111,9.801001550511362e-18,4.645674734942386e-15
+qwen38-27b-codebook,zs_cot,en,major_power_attribution,toward India/China/US/UN,13,26,-13,0.3333333333333333,0.05325191409792752,1.0
+qwen38-27b-codebook,zs_cot,en,india_attribution,toward India,5,21,-16,0.19230769230769232,0.002493917942047119,0.6334551572799683
+qwen38-27b-codebook,zs_cot,en,polarization,toward Pro-West/Pro-China,142,19,123,0.8819875776397516,1.8242950410934214e-24,9.066746354234305e-22
+qwen38-27b-codebook,zs_cot,en,pro_west,toward Pro-West,112,20,92,0.8484848484848485,1.0363075244891659e-16,4.839556139364405e-14
+qwen38-27b-codebook,zs_cot,en,non_aligned,toward Non-aligned,25,124,-99,0.16778523489932887,5.695232461132502e-17,2.665368791810011e-14
+qwen38-27b-codebook,zs_cot,en,strategic_default,toward Strategic,106,64,42,0.6235294117647059,0.0015855639033693488,0.4217599982962468
+qwen38-27b-codebook,zs_cot,en,causal_yes,toward Yes (FP) vs No (FN),129,38,91,0.7724550898203593,8.682686424142268e-13,3.820382026622598e-10
+tfidf-logreg,sup,bn,major_power_attribution,toward India/China/US/UN,35,55,-20,0.3888888888888889,0.04459752462791592,1.0
+tfidf-logreg,sup,bn,india_attribution,toward India,37,36,1,0.5068493150684932,1.0,1.0
+tfidf-logreg,sup,bn,polarization,toward Pro-West/Pro-China,38,68,-30,0.3584905660377358,0.0046185356920239295,1.0
+tfidf-logreg,sup,bn,pro_west,toward Pro-West,38,55,-17,0.40860215053763443,0.09656519729770463,1.0
+tfidf-logreg,sup,bn,non_aligned,toward Non-aligned,75,49,26,0.6048387096774194,0.024370170122399476,1.0
+tfidf-logreg,sup,bn,strategic_default,toward Strategic,97,73,24,0.5705882352941176,0.07742063790014941,1.0
+tfidf-logreg,sup,bn,causal_yes,toward Yes (FP) vs No (FN),64,73,-9,0.46715328467153283,0.4944424524331343,1.0
+tfidf-logreg,sup,en,major_power_attribution,toward India/China/US/UN,35,50,-15,0.4117647058823529,0.12839640292640084,1.0
+tfidf-logreg,sup,en,india_attribution,toward India,35,30,5,0.5384615384615384,0.6201447650813029,1.0
+tfidf-logreg,sup,en,polarization,toward Pro-West/Pro-China,33,63,-30,0.34375,0.002878610081200932,0.716773910219032
+tfidf-logreg,sup,en,pro_west,toward Pro-West,33,53,-20,0.38372093023255816,0.03985362856053515,1.0
+tfidf-logreg,sup,en,non_aligned,toward Non-aligned,75,48,27,0.6097560975609756,0.01869342540925406,1.0
+tfidf-logreg,sup,en,strategic_default,toward Strategic,96,75,21,0.5614035087719298,0.125908771187644,1.0
+tfidf-logreg,sup,en,causal_yes,toward Yes (FP) vs No (FN),64,73,-9,0.46715328467153283,0.4944424524331343,1.0
+xlmr-base-nli,zs,bn,major_power_attribution,toward India/China/US/UN,28,204,-176,0.1206896551724138,3.4482541040985617e-34,1.7586095930902664e-31
+xlmr-base-nli,zs,bn,india_attribution,toward India,0,182,-182,0.0,3.2626522339992623e-55,1.7226803795516105e-52
+xlmr-base-nli,zs,bn,polarization,toward Pro-West/Pro-China,76,134,-58,0.3619047619047619,7.602880225150366e-05,0.02334084229121162
+xlmr-base-nli,zs,bn,pro_west,toward Pro-West,41,126,-85,0.24550898203592814,2.970906241516586e-11,1.241838808953933e-08
+xlmr-base-nli,zs,bn,non_aligned,toward Non-aligned,162,65,97,0.7136563876651982,9.738106249434306e-11,3.943933031020894e-08
+xlmr-base-nli,zs,bn,strategic_default,toward Strategic,180,46,134,0.7964601769911505,6.382415419118072e-20,3.1210011399487376e-17
+xlmr-base-nli,zs,bn,causal_yes,toward Yes (FP) vs No (FN),1,308,-307,0.003236245954692557,5.944605368133966e-91,3.2338653202648774e-88
+xlmr-base-nli,zs,en,major_power_attribution,toward India/China/US/UN,20,116,-96,0.14705882352941177,1.2245370051970576e-17,5.7920600345820825e-15
+xlmr-base-nli,zs,en,india_attribution,toward India,15,90,-75,0.14285714285714285,3.276492294212061e-14,1.4973569784549116e-11
+xlmr-base-nli,zs,en,polarization,toward Pro-West/Pro-China,17,162,-145,0.09497206703910614,7.429429822056231e-31,3.7518620601383966e-28
+xlmr-base-nli,zs,en,pro_west,toward Pro-West,6,137,-131,0.04195804195804196,2.001826092472526e-33,1.0149258288835706e-30
+xlmr-base-nli,zs,en,non_aligned,toward Non-aligned,196,21,175,0.9032258064516129,8.897816014243406e-37,4.5734774313211104e-34
+xlmr-base-nli,zs,en,strategic_default,toward Strategic,176,66,110,0.7272727272727273,9.868795637358063e-13,4.3225324891628316e-10
+xlmr-base-nli,zs,en,causal_yes,toward Yes (FP) vs No (FN),36,278,-242,0.11464968152866242,1.7785339204136192e-47,9.301732403763228e-45

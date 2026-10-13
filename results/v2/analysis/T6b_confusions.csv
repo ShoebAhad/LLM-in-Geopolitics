@@ -1,0 +1,224 @@
+category,gold,pred,lang,count
+frame,Economic,Strategic,en,2560
+frame,Economic,Strategic,bn,2518
+alignment,Non-aligned,Mixed,en,1733
+alignment,Non-aligned,Mixed,bn,1648
+alignment,Pro-West,Non-aligned,bn,1556
+alignment,Pro-West,Non-aligned,en,1531
+alignment,Non-aligned,Pro-West,en,1439
+alignment,Non-aligned,Pro-West,bn,1415
+frame,Security,Strategic,bn,1340
+frame,Security,Strategic,en,1340
+alignment,Pro-West,Mixed,en,876
+alignment,Pro-West,Mixed,bn,811
+frame,Normative,Strategic,bn,773
+frame,Strategic,Normative,en,757
+frame,Strategic,Normative,bn,755
+frame,Normative,Strategic,en,751
+frame,Strategic,Security,en,735
+frame,Strategic,Security,bn,678
+alignment,Non-aligned,Pro-China,bn,653
+alignment,Mixed,Non-aligned,bn,629
+alignment,Non-aligned,Pro-China,en,616
+alignment,Mixed,Non-aligned,en,605
+frame,Strategic,Economic,en,576
+frame,Strategic,Economic,bn,575
+frame,Normative,Security,en,514
+frame,Normative,Security,bn,505
+actor,India,Other,bn,502
+alignment,Mixed,Pro-West,en,418
+alignment,Mixed,Pro-West,bn,409
+actor,India,Bangladesh,bn,407
+actor,India,Other,en,375
+actor,Other,Bangladesh,bn,356
+actor,Other,Bangladesh,en,349
+actor,India,Bangladesh,en,344
+frame,Normative,Humanitarian,bn,337
+frame,Normative,Humanitarian,en,334
+actor,Other,Pakistan,en,313
+actor,Sri Lanka,Other,bn,285
+frame,Strategic,Humanitarian,bn,276
+actor,Pakistan,Other,bn,273
+actor,Bangladesh,India,en,272
+actor,Other,Pakistan,bn,267
+actor,Pakistan,Other,en,244
+frame,Strategic,Humanitarian,en,241
+actor,Bangladesh,India,bn,237
+actor,Sri Lanka,Other,en,222
+actor,Bangladesh,Other,bn,218
+actor,Bangladesh,Other,en,177
+alignment,Mixed,Pro-China,en,173
+actor,India,Pakistan,bn,163
+alignment,Mixed,Pro-China,bn,163
+actor,Bangladesh,US,bn,158
+actor,India,Pakistan,en,155
+frame,Humanitarian,Strategic,bn,148
+actor,Bangladesh,US,en,148
+alignment,Pro-West,Pro-China,bn,143
+alignment,Pro-China,Non-aligned,bn,139
+frame,Humanitarian,Strategic,en,139
+actor,Pakistan,India,en,126
+frame,Security,Normative,en,125
+frame,Security,Economic,bn,125
+alignment,Pro-West,Pro-China,en,121
+actor,US,Bangladesh,en,119
+frame,Security,Normative,bn,117
+frame,Security,Economic,en,115
+actor,Pakistan,India,bn,112
+alignment,Pro-China,Non-aligned,en,110
+frame,Humanitarian,Normative,bn,103
+actor,US,Bangladesh,bn,101
+frame,Economic,Humanitarian,bn,101
+frame,Humanitarian,Normative,en,98
+actor,Pakistan,China,bn,98
+actor,Pakistan,China,en,94
+actor,India,US,bn,93
+actor,Pakistan,US,en,90
+alignment,Pro-China,Mixed,en,88
+actor,Other,India,bn,87
+actor,Other,India,en,87
+actor,Pakistan,US,bn,84
+frame,Security,Humanitarian,bn,84
+frame,Economic,Humanitarian,en,83
+actor,Sri Lanka,India,bn,80
+actor,Bhutan,Other,bn,79
+actor,India,US,en,79
+frame,Security,Humanitarian,en,78
+actor,Sri Lanka,India,en,77
+actor,Other,US,bn,72
+alignment,Pro-China,Mixed,bn,69
+actor,Bangladesh,Pakistan,en,68
+alignment,Non-aligned,INVALID,bn,66
+actor,Bhutan,UN,en,65
+actor,US,India,en,64
+actor,Other,US,en,60
+actor,Bangladesh,Pakistan,bn,60
+actor,Bhutan,UN,bn,58
+frame,Humanitarian,Security,bn,58
+actor,Bhutan,Other,en,57
+actor,US,India,bn,56
+actor,China,India,en,55
+actor,Other,Myanmar,en,55
+actor,Other,Myanmar,bn,53
+actor,China,India,bn,53
+actor,US,Other,en,49
+frame,Humanitarian,Security,en,49
+actor,US,Other,bn,46
+actor,Other,China,en,42
+alignment,Non-aligned,INVALID,en,41
+actor,Pakistan,Bangladesh,bn,39
+actor,Bangladesh,Myanmar,bn,39
+actor,India,Bhutan,bn,38
+actor,UN,Other,en,38
+actor,Other,UN,en,38
+actor,Other,China,bn,36
+frame,Normative,Economic,bn,35
+actor,Other,UN,bn,35
+frame,Economic,Security,en,34
+actor,UN,Myanmar,en,34
+actor,Sri Lanka,UN,bn,34
+actor,UN,Other,bn,33
+frame,Economic,Security,bn,33
+frame,Strategic,INVALID,bn,31
+actor,UN,Bangladesh,en,31
+alignment,Pro-China,Pro-West,bn,31
+frame,Economic,Normative,en,30
+actor,Sri Lanka,Bangladesh,bn,30
+alignment,Pro-China,Pro-West,en,30
+frame,Normative,Economic,en,30
+actor,Sri Lanka,UN,en,29
+actor,Bhutan,Bangladesh,en,29
+actor,Myanmar,Pakistan,en,27
+actor,Pakistan,Bangladesh,en,27
+actor,UN,Myanmar,bn,27
+actor,Myanmar,Bangladesh,bn,26
+actor,Bangladesh,UN,bn,26
+actor,Bhutan,Bangladesh,bn,25
+actor,Bangladesh,Myanmar,en,23
+actor,Myanmar,Bangladesh,en,23
+alignment,Pro-West,INVALID,bn,22
+actor,Myanmar,Pakistan,bn,22
+actor,India,Sri Lanka,en,21
+frame,Economic,Normative,bn,20
+actor,India,Sri Lanka,bn,20
+actor,UN,Bangladesh,bn,19
+actor,Myanmar,Other,bn,19
+actor,China,Bangladesh,en,18
+actor,Bangladesh,Bhutan,bn,18
+frame,Humanitarian,Economic,en,16
+actor,Bangladesh,UN,en,15
+actor,Bangladesh,China,bn,15
+frame,Humanitarian,Economic,bn,15
+actor,China,Pakistan,bn,14
+actor,Bhutan,India,bn,14
+actor,Bhutan,India,en,14
+frame,Economic,INVALID,bn,12
+alignment,Mixed,INVALID,bn,12
+actor,US,Pakistan,bn,12
+actor,China,Other,bn,11
+actor,Sri Lanka,Bhutan,en,11
+actor,China,Bangladesh,bn,10
+actor,India,INVALID,bn,10
+actor,Sri Lanka,Bhutan,bn,9
+actor,Bangladesh,China,en,9
+actor,China,Pakistan,en,9
+actor,China,Other,en,9
+actor,India,China,bn,8
+actor,India,UN,bn,8
+alignment,Mixed,INVALID,en,8
+actor,Myanmar,India,en,8
+actor,Myanmar,India,bn,8
+actor,Bhutan,China,en,7
+actor,India,Bhutan,en,7
+actor,Myanmar,Other,en,7
+actor,US,Pakistan,en,6
+actor,UN,India,bn,6
+actor,UN,India,en,6
+frame,Security,INVALID,bn,6
+actor,Pakistan,UN,en,5
+actor,Pakistan,INVALID,bn,5
+actor,Pakistan,UN,bn,5
+actor,India,UN,en,5
+actor,Bhutan,China,bn,5
+actor,India,Myanmar,bn,4
+actor,Other,Bhutan,bn,4
+actor,UN,US,en,4
+actor,India,INVALID,en,4
+actor,Pakistan,Bhutan,bn,4
+alignment,Pro-West,INVALID,en,4
+actor,Bangladesh,INVALID,bn,4
+actor,US,Bhutan,bn,3
+actor,China,Bhutan,bn,3
+actor,Pakistan,Myanmar,bn,3
+frame,Normative,INVALID,bn,3
+actor,Other,INVALID,bn,3
+alignment,Pro-China,INVALID,bn,3
+actor,India,Myanmar,en,3
+actor,China,Sri Lanka,bn,2
+actor,India,China,en,2
+actor,US,China,bn,2
+actor,Sri Lanka,US,bn,2
+actor,Bhutan,Pakistan,en,1
+actor,Myanmar,Sri Lanka,en,1
+actor,China,Sri Lanka,en,1
+actor,Myanmar,Sri Lanka,bn,1
+actor,UN,Bhutan,bn,1
+actor,China,Myanmar,bn,1
+actor,Sri Lanka,China,bn,1
+actor,Pakistan,Sri Lanka,bn,1
+actor,Bhutan,INVALID,bn,1
+actor,US,Myanmar,en,1
+actor,Sri Lanka,Myanmar,bn,1
+frame,Humanitarian,INVALID,bn,1
+actor,Pakistan,INVALID,en,1
+actor,UN,US,bn,1
+actor,Other,Sri Lanka,bn,1
+actor,Bangladesh,Sri Lanka,bn,1
+actor,Sri Lanka,Pakistan,bn,1
+actor,US,Myanmar,bn,1
+actor,US,China,en,1
+actor,Other,INVALID,en,1
+frame,Strategic,INVALID,en,1
+actor,Sri Lanka,US,en,1
+actor,Bangladesh,INVALID,en,1
+frame,Humanitarian,INVALID,en,1

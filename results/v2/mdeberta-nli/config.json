@@ -1,0 +1,6 @@
+{
+ "model": "MoritzLaurer/mDeBERTa-v3-base-mnli-xnli",
+ "tag": "mdeberta-nli",
+ "method": "zero-shot NLI, one classification per category",
+ "max_tokens_input": 512
+}

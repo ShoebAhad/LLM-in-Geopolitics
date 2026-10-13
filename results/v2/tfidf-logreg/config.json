@@ -1,0 +1,5 @@
+{
+ "tag": "tfidf-logreg",
+ "method": "5-fold cross-validation by item, out-of-fold predictions",
+ "seed": 42
+}

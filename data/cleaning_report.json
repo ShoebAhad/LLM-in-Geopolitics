@@ -1,0 +1,145 @@
+{
+ "rows_in_sheet": 697,
+ "annotated_rows": 597,
+ "dropped_unclear_role": 55,
+ "dropped_bad_text_rows": {},
+ "duplicate_text_label_conflicts_dropped": 7,
+ "actor_set": [
+  "Bangladesh",
+  "India",
+  "Pakistan",
+  "Sri Lanka",
+  "Bhutan",
+  "Myanmar",
+  "China",
+  "US",
+  "UN",
+  "Other"
+ ],
+ "actor_raw_counts": {
+  "India": 184,
+  "Bangladesh": 122,
+  "Pakistan": 84,
+  "Sri Lanka": 32,
+  "US": 22,
+  "Other": 17,
+  "China": 16,
+  "Bhutan": 14,
+  "Myanmar": 7,
+  "UN": 5,
+  "Singapore": 3,
+  "Malaysia": 3,
+  "Japan": 2,
+  "Qatar": 2,
+  "Saudi Arabia": 2,
+  "Kazakhstan": 2,
+  "EU": 1,
+  "Germany": 1,
+  "IOM": 1,
+  "Nepal": 1,
+  "Syria": 1,
+  "Egypt": 1,
+  "Indonesia": 1,
+  "Uzbekistan": 1,
+  "BRICS": 1,
+  "QUAD": 1
+ },
+ "mapped_to_Other": {
+  "Other": 17,
+  "Singapore": 3,
+  "Malaysia": 3,
+  "Japan": 2,
+  "Qatar": 2,
+  "Saudi Arabia": 2,
+  "Kazakhstan": 2,
+  "EU": 1,
+  "Germany": 1,
+  "IOM": 1,
+  "Nepal": 1,
+  "Syria": 1,
+  "Egypt": 1,
+  "Indonesia": 1,
+  "Uzbekistan": 1,
+  "BRICS": 1,
+  "QUAD": 1
+ },
+ "n_items": 527,
+ "n_dev": 41,
+ "n_test": 486,
+ "n_evaluations_per_model_condition_test": 972,
+ "original_language": {
+  "en": 425,
+  "bn": 102
+ },
+ "gold_frame": {
+  "Strategic": 241,
+  "Economic": 120,
+  "Security": 78,
+  "Normative": 60,
+  "Humanitarian": 28
+ },
+ "gold_actor": {
+  "India": 184,
+  "Bangladesh": 122,
+  "Pakistan": 84,
+  "Other": 41,
+  "Sri Lanka": 32,
+  "US": 22,
+  "China": 16,
+  "Bhutan": 14,
+  "Myanmar": 7,
+  "UN": 5
+ },
+ "gold_actor_role": {
+  "Initiator": 339,
+  "Respondent": 165,
+  "Mediator": 15,
+  "Victim": 8
+ },
+ "gold_agency": {
+  "High": 374,
+  "Medium": 133,
+  "Low": 20
+ },
+ "gold_moral_valence": {
+  "Positive": 349,
+  "Neutral": 99,
+  "Negative": 79
+ },
+ "gold_causal_present": {
+  "Yes": 312,
+  "No": 215
+ },
+ "gold_policy_direction": {
+  "Cooperation": 337,
+  "Pressure": 89,
+  "Neutrality": 78,
+  "Intervention": 23
+ },
+ "gold_alignment": {
+  "Non-aligned": 315,
+  "Pro-West": 138,
+  "Mixed": 43,
+  "Pro-China": 31
+ },
+ "chars_en": {
+  "count": 527.0,
+  "mean": 4118.0,
+  "std": 4352.0,
+  "min": 259.0,
+  "25%": 1492.0,
+  "50%": 2640.0,
+  "75%": 5260.0,
+  "max": 34666.0
+ },
+ "chars_bn": {
+  "count": 527.0,
+  "mean": 3916.0,
+  "std": 4233.0,
+  "min": 246.0,
+  "25%": 1373.0,
+  "50%": 2409.0,
+  "75%": 4967.0,
+  "max": 32879.0
+ }
+}

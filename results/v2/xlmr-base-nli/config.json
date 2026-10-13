@@ -1,0 +1,6 @@
+{
+ "model": "symanto/xlm-roberta-base-snli-mnli-anli-xnli",
+ "tag": "xlmr-base-nli",
+ "method": "zero-shot NLI, one classification per category",
+ "max_tokens_input": 512
+}

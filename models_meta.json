@@ -1,0 +1,10 @@
+{
+ "qwen3-14b":      {"country": "China",  "params_b": 14, "open": true,  "hf": "Qwen/Qwen3-14B"},
+ "llama31-8b":     {"country": "US",     "params_b": 8,  "open": true,  "hf": "meta-llama/Llama-3.1-8B-Instruct"},
+ "gemma3-12b":     {"country": "US",     "params_b": 12, "open": true,  "hf": "google/gemma-3-12b-it"},
+ "mistral-small":  {"country": "France", "params_b": 24, "open": true,  "hf": "mistralai/Mistral-Small-3.2-24B-Instruct-2506 (4/8-bit to fit 32GB)"},
+ "gpt-oss-20b":    {"country": "US",     "params_b": 20, "open": true,  "hf": "openai/gpt-oss-20b (already in ollama)"},
+ "sonnet":         {"country": "US",     "params_b": null, "open": false},
+ "opus":           {"country": "US",     "params_b": null, "open": false},
+ "gpt":            {"country": "US",     "params_b": null, "open": false}
+}

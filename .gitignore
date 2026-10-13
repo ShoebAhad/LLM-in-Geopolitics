@@ -1,0 +1,46 @@
+# OS / Python
+.DS_Store
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# secrets
+.env
+*.key
+*_api_key
+
+# internal notes, paper sources
+PLAN.md
+paper/
+
+# v1 (superseded) code, data, figures and results
+legacy_v1/
+generate_figures.py
+bfpn_dataset.json
+bfpn_mdeberta_colab.ipynb
+annotation_data_multisource_1000 - Sheet1.csv
+data/bfpn_dataset_en.json
+data/bfpn_dataset_bn.json
+figures/*.png
+results/*
+!results/v2/
+
+# machine-specific launch / watchdog scripts
+run_qwen_full.sh
+run_qwen_extra.sh
+run_everything.sh
+run_open_models.sh
+keep_running.sh
+keep_model_running.sh
+vllm_watchdog.sh
+shutdown_when_done.sh
+
+# run logs, completion markers, scratch analyses
+results/v2/logs/
+results/v2/DONE_*
+results/v2/ANALYSIS_DONE
+results/v2/analysis_qwen_only/
+results/scratch/
+data/iaa_sample.xlsx

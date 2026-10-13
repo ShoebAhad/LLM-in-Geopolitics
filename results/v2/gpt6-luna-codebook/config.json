@@ -1,0 +1,34 @@
+{
+ "model": "gpt-6-luna",
+ "tag": "gpt6-luna-codebook",
+ "provider": "openai",
+ "base_url": "https://api.openai.com/v1",
+ "conditions": [
+  "fs_cot"
+ ],
+ "langs": [
+  "en",
+  "bn"
+ ],
+ "runs": [
+  1,
+  2
+ ],
+ "temp": 0.7,
+ "split": "all",
+ "limit": 0,
+ "workers": 96,
+ "max_inflight_tokens": 1000000,
+ "tpm": 1500000,
+ "max_chars": 60000,
+ "extra_body": "{\"reasoning_effort\":\"none\"}",
+ "no_temp": true,
+ "no_seed": false,
+ "max_tokens": 4000,
+ "max_tokens_cot": 16000,
+ "exemplars": "default",
+ "schema": "codebook",
+ "key_file": "/home/milgpt/.openai_api_key",
+ "out": "results/v2",
+ "keep_caps": false
+}

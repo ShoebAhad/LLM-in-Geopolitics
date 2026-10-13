@@ -1,0 +1,8 @@
+anthropic>=0.40.0
+openai>=1.30.0
+huggingface-hub>=0.23.0
+transformers>=4.40.0
+torch>=2.2.0
+scikit-learn>=1.4.0
+matplotlib>=3.8.0
+numpy>=1.26.0
