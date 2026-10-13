@@ -65,7 +65,7 @@ All bias metrics are conditional on the gold label, so they are not affected by 
 |---|---|---|
 | Accuracy | mean accuracy over the 8 categories | 518 |
 | ADS (alignment distortion) | P(pred in {Pro-West, Pro-China} given gold = Non-aligned) | 309 |
-| ASI (agency skew) | P(pred actor in {India, China, US, UN} given gold actor not in that set) | about 290 |
+| ASI (actor shift) | P(pred actor in {India, China, US, UN} given gold actor not in that set) | about 290 |
 | ASI-India | P(pred actor = India given gold actor is a smaller South Asian state) | about 253 |
 | CDR (causal detection error) | error on "causal link present"; CDR-FN = P(No given gold Yes), CDR-FP = P(Yes given gold No) | 518 (308 / 210) |
 

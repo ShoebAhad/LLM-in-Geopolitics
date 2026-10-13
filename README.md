@@ -39,7 +39,7 @@ All metrics are conditional on the gold label, so they are not driven by the lab
 | Metric | Definition |
 |---|---|
 | **ADS** (alignment distortion) | P(pred in {Pro-West, Pro-China} given gold = Non-aligned) |
-| **ASI** (agency skew) | P(pred actor in {India, China, US, UN} given gold actor not in that set) |
+| **ASI** (actor shift) | P(pred actor in {India, China, US, UN} given gold actor not in that set) |
 | **ASI-India** | P(pred actor = India given gold actor is a smaller South Asian state) |
 | **CDR** (causal detection error) | error on `causal_present`; CDR-FN = P(No given gold Yes), CDR-FP = P(Yes given gold No) |
 
