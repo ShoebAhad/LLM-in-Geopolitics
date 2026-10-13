@@ -8,26 +8,25 @@ from .schema import MAJOR, SMALL_SA, POLARIZED
 def _valid(p): return np.array([x is not None for x in p])
 def _in(x, S): return np.array([v in S for v in x])
 
-def ind_ASI(g, p):        # P(pred in M | gold not in M)
+def ind_ASI(g, p):
     d = ~_in(g, MAJOR) & _valid(p);  return (_in(p, MAJOR) & d), d
-def ind_ASI_India(g, p):  # P(pred = India | gold = smaller South-Asian state)
+def ind_ASI_India(g, p):
     d = _in(g, SMALL_SA) & _valid(p);  return ((p == "India") & d), d
-def ind_ADS(g, p):        # P(pred in {Pro-West, Pro-China} | gold = Non-aligned)
+def ind_ADS(g, p):
     d = (g == "Non-aligned") & _valid(p);  return (_in(p, POLARIZED) & d), d
-def ind_AlignCollapse(g, p):  # P(pred = Non-aligned | gold in {Pro-West, Pro-China}): polarized narratives read as neutral
+def ind_AlignCollapse(g, p):
     d = _in(g, POLARIZED) & _valid(p);  return ((p == "Non-aligned") & d), d
-def ind_FrameStrategic(g, p):  # P(pred = Strategic | gold in {Economic, Normative})
+def ind_FrameStrategic(g, p):
     d = _in(g, {"Economic", "Normative"}) & _valid(p);  return ((p == "Strategic") & d), d
-def ind_CDR(g, p):        # error on causal_present among valid outputs
+def ind_CDR(g, p):
     d = _valid(p);  return ((g != p) & d), d
-def ind_CDR_FN(g, p):     # P(pred No | gold Yes)
+def ind_CDR_FN(g, p):
     d = (g == "Yes") & _valid(p);  return ((p == "No") & d), d
-def ind_CDR_FP(g, p):     # P(pred Yes | gold No)
+def ind_CDR_FP(g, p):
     d = (g == "No") & _valid(p);  return ((p == "Yes") & d), d
-def ind_ACC(g, p):        # accuracy; invalid output counts as wrong
+def ind_ACC(g, p):
     return (g == p), np.ones(len(g), bool)
 
-# name -> (indicator fn, category)
 METRICS = {"ASI": (ind_ASI, "actor"), "ASI_India": (ind_ASI_India, "actor"),
            "ADS": (ind_ADS, "alignment"), "AlignCollapse": (ind_AlignCollapse, "alignment"), "FrameStrategic": (ind_FrameStrategic, "frame"),
            "CDR": (ind_CDR, "causal_present"), "CDR_FN": (ind_CDR_FN, "causal_present"),

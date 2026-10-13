@@ -21,14 +21,14 @@ def scored_items():
 def sample(n, k, seed):
     items = scored_items(); rng = random.Random(seed); rng.shuffle(items)
     chosen = {}
-    for c in CATEGORIES:                       # rare labels first: at least k items (or all there are) per label
+    for c in CATEGORIES:
         for lab in VALID_LABELS[c]:
             pool = [i for i in items if i["gold"][c] == lab]
             have = sum(i["gold"][c] == lab for i in chosen.values())
             for i in pool:
                 if have >= min(k, len(pool)): break
                 if i["id"] not in chosen: chosen[i["id"]] = i; have += 1
-    for i in items:                            # then fill at random
+    for i in items:
         if len(chosen) >= n: break
         chosen.setdefault(i["id"], i)
     rows = sorted(chosen.values(), key=lambda i: i["id"])

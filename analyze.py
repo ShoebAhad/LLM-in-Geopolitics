@@ -10,7 +10,7 @@ from scipy.stats import binomtest
 from bfpn.schema import CATEGORIES, VALID_LABELS, extract_json, validate
 from bfpn.metrics import METRICS, ind_ACC, rate, boot_weights, boot_rate, ci
 
-FLOWS = {  # name -> (category, favoured set S, description); into = gold not in S -> pred in S
+FLOWS = {
     "major_power_attribution": ("actor", {"India", "China", "US", "UN"}, "toward India/China/US/UN"),
     "india_attribution": ("actor", {"India"}, "toward India"),
     "polarization": ("alignment", {"Pro-West", "Pro-China"}, "toward Pro-West/Pro-China"),
@@ -24,7 +24,7 @@ R = os.environ.get("BFPN_RESULTS", "results/v2"); OUT = f"{R}/analysis"
 def load(items, conds=None):
     ids = [i["id"] for i in items]; pos = {k: n for n, k in enumerate(ids)}
     gold = {c: np.array([i["gold"][c] for i in items], dtype=object) for c in CATEGORIES}
-    preds, seen, st = {}, {}, {}   # (model, cond, lang, run) -> {cat: object array (None = invalid)}
+    preds, seen, st = {}, {}, {}
     for f in glob.glob(f"{R}/*/*_r*.jsonl"):
         for l in open(f):
             r = json.loads(l)
@@ -32,14 +32,13 @@ def load(items, conds=None):
             key = (r["model"], r["condition"], r["lang"], r["run"])
             d = preds.setdefault(key, {c: np.array([None] * len(ids), dtype=object) for c in CATEGORIES})
             seen.setdefault(key, set()).add(r["id"])
-            pred = validate(extract_json(r["raw"])) if r.get("raw") else r["pred"]   # re-parse: parser fixes apply retroactively
+            pred = validate(extract_json(r["raw"])) if r.get("raw") else r["pred"]
             for c in CATEGORIES: d[c][pos[r["id"]]] = pred.get(c)
             s = st.setdefault(key, dict(rows=0, unparsed=0, truncated=0, input_shortened=0))
             s["rows"] += 1; s["unparsed"] += (extract_json(r["raw"]) is None) if r.get("raw") else (not r.get("parsed", True))
             s["truncated"] += r.get("finish") == "length"; s["input_shortened"] += r.get("text_fraction_used", 1.0) < 1.0
     incomplete = [k for k in preds if len(seen[k]) < len(ids)]
     for k in incomplete: print("skipping incomplete config", k, f"{len(seen[k])}/{len(ids)}")
-    # data integrity, one row per result file: every expected item present once, parsed, not truncated, labels in schema
     integ = []
     for k in sorted(preds):
         miss = len(ids) - len(seen[k])
@@ -74,11 +73,10 @@ def main():
     prim = {k: v for k, v in P.items() if k[3] == 0}
     print(f"{n} test items | {len(models)} models | conds {conds} | B={a.B}")
 
-    # ---------- T1: main table, per model x cond x lang (+ pooled), with CIs and denominators ----------
     rows = []
     for (m, c, l, r), p in sorted(prim.items()):
         for name, (fn, cat) in {**METRICS, "ACC_all8": (None, None)}.items():
-            if name == "ACC_all8":      # mean per-category accuracy
+            if name == "ACC_all8":
                 num = np.mean([ind_ACC(gold[x], p[x])[0] for x in CATEGORIES], axis=0); den = np.ones(n)
             else:
                 num, den = fn(gold[cat], p[cat])
@@ -87,9 +85,6 @@ def main():
                              num=int(num.sum()), den=int(den.sum())))
     T1 = pd.DataFrame(rows); T1.to_csv(f"{OUT}/T1_main.csv", index=False)
 
-    # ---------- T2: directional asymmetry (is the error flow one-way?) ----------
-    # For each boundary, count errors crossing INTO the favoured class vs OUT of it. If errors were symmetric noise
-    # the two counts would be ~equal; exact binomial test of H0: P(into | crossing error) = 0.5. Holm-corrected.
     rows = []
     for (m, c, l, r), p in sorted(prim.items()):
         for name, (cat, S, lab) in FLOWS.items():
@@ -103,13 +98,6 @@ def main():
     if len(A): A["p_holm"] = holm(A.p_binom.values)
     A.to_csv(f"{OUT}/T2_directional_asymmetry.csv", index=False)
 
-    # ---------- T2b / T2c: ALL flows, every label of every category ----------
-    # T2b, one-vs-rest per label: into = gold other -> pred L; out_of = gold L -> pred another valid label. shift_pp is the
-    #   corpus-level share change (pred share - gold share) with a bootstrap CI.
-    # T2c, every label pair (a, b): a->b vs b->a. The binomial test compares the two COUNTS, so read it next to the
-    #   gold-conditional rates (rate_a_to_b = a->b / gold a), which do not depend on how common each label is.
-    # Invalid (out-of-schema) outputs are not a flow to any label; they sit in their own column. Every valid error is counted
-    # exactly once in each view, which the reconciliation check below enforces.
     rows, prs = [], []
     for (m, c, l, r), p in sorted(prim.items()):
         for cat in CATEGORIES:
@@ -139,7 +127,6 @@ def main():
         if len(T): T["p_holm"] = holm(T.p_binom.values)
         T.to_csv(f"{OUT}/{name}.csv", index=False)
 
-    # ---------- T3: run-to-run variance (needs runs >= 1) ----------
     rows = []
     for (m, c, l, r), p in sorted(P.items()):
         for name, (fn, cat) in METRICS.items():
@@ -149,7 +136,6 @@ def main():
         V.groupby(["model", "cond", "lang", "metric"]).value.agg(["mean", "std", "min", "max", "count"]).reset_index() \
          .to_csv(f"{OUT}/T3_run_variance.csv", index=False)
 
-    # ---------- T4: language invariance (RQ3): flips, paired accuracy, McNemar, direction ----------
     rows, trans = [], []
     for m in models:
         for c in conds:
@@ -159,7 +145,7 @@ def main():
                 both = np.array([x is not None and y is not None for x, y in zip(pe[cat], pb[cat])])
                 flip = ((pe[cat] != pb[cat]) & both).astype(float)
                 ce, cb = (pe[cat] == gold[cat]), (pb[cat] == gold[cat])
-                b = int((ce & ~cb & both).sum()); cc = int((~ce & cb & both).sum())      # EN right/BN wrong ; reverse
+                b = int((ce & ~cb & both).sum()); cc = int((~ce & cb & both).sum())
                 pv = binomtest(b, b + cc, 0.5).pvalue if b + cc else 1.0
                 bs = boot_rate(flip, both.astype(float), W); lo, hi = ci(bs)
                 dacc = boot_rate(ce.astype(float), np.ones(n), W) - boot_rate(cb.astype(float), np.ones(n), W)
@@ -175,8 +161,6 @@ def main():
     L.to_csv(f"{OUT}/T4_language_invariance.csv", index=False)
     pd.DataFrame(trans).to_csv(f"{OUT}/T4b_flip_transitions.csv", index=False)
 
-    # noise floor: same-language flip rate between two sampled runs vs the EN-vs-BN flip rate (run 0 vs run 0).
-    # Language-driven instability only exists to the extent EN-BN flips exceed the stochastic floor.
     rows = []
     for m in models:
         for c in conds:
@@ -196,7 +180,6 @@ def main():
                                  excess_flip=lang_flip - float(np.mean(fl))))
     pd.DataFrame(rows).to_csv(f"{OUT}/T4e_noise_floor.csv", index=False)
 
-    # language effect on the bias metrics themselves (paired difference, EN - BN)
     rows = []
     for m in models:
         for c in conds:
@@ -212,7 +195,6 @@ def main():
     if len(D): D["p_holm"] = holm(D.p_boot.values)
     D.to_csv(f"{OUT}/T4c_language_bias_diff.csv", index=False)
 
-    # pooled GEE: P(correct) ~ language + model + cond, clustered on item
     try:
         import statsmodels.api as sm, statsmodels.formula.api as smf
         recs = []
@@ -232,7 +214,6 @@ def main():
     except Exception as e:
         print("GEE skipped:", e)
 
-    # ---------- T5: pairwise model comparisons (paired bootstrap, Holm) ----------
     rows = []
     for c, l in itertools.product(conds, ["en", "bn"]):
         for m1, m2 in itertools.combinations(models, 2):
@@ -248,7 +229,6 @@ def main():
     if len(M): M["p_holm"] = holm(M.p_boot.values)
     M.to_csv(f"{OUT}/T5_model_pairs.csv", index=False)
 
-    # ---------- T6: where bias concentrates (RQ4) ----------
     rows = []
     for (m, c, l, r), p in prim.items():
         for a_ in sorted(set(gold["actor"])):
@@ -265,7 +245,6 @@ def main():
                 if g_ != p_: conf[(cat, g_, p_ or "INVALID", l)] = conf.get((cat, g_, p_ or "INVALID", l), 0) + 1
     pd.DataFrame([dict(category=k[0], gold=k[1], pred=k[2], lang=k[3], count=v) for k, v in conf.items()]) \
       .sort_values("count", ascending=False).to_csv(f"{OUT}/T6b_confusions.csv", index=False)
-    # item difficulty: share of (model,cond,lang) configs wrong, per category -> unanimous failures
     diff_rows = []
     for cat in CATEGORIES:
         wrong = np.mean([(p[cat] != gold[cat]) for p in prim.values()], axis=0)
@@ -274,7 +253,6 @@ def main():
                                   unanimous_wrong=bool(wrong[i] == 1.0), original_language=it["original_language"]))
     DF = pd.DataFrame(diff_rows); DF.to_csv(f"{OUT}/T6c_item_difficulty.csv", index=False)
 
-    # ---------- T7: consequence: corpus-level share distortion, model minus gold, pp with CI ----------
     rows = []
     targets = [("actor", {"India"}), ("actor", {"India", "China", "US", "UN"}), ("alignment", {"Pro-West"}),
                ("alignment", {"Pro-China"}), ("alignment", {"Non-aligned"}), ("frame", {"Strategic"}),
@@ -287,7 +265,6 @@ def main():
                              gold_share=gi.mean() * 100, pred_share=pi.mean() * 100, shift_pp=(pi.mean() - gi.mean()) * 100, lo=lo, hi=hi))
     pd.DataFrame(rows).to_csv(f"{OUT}/T7_share_distortion.csv", index=False)
 
-    # ---------- T8: CDR-FN conditional on gold actor group / language (is it differential?) ----------
     rows = []
     for (m, c, l, r), p in sorted(prim.items()):
         for grp, mask in [("gold_actor=India", gold["actor"] == "India"), ("gold_actor=Bangladesh", gold["actor"] == "Bangladesh"),
@@ -298,7 +275,6 @@ def main():
             rows.append(dict(model=m, cond=c, lang=l, group=grp, cdr_fn=rate(nu, de), num=int(nu.sum()), den=int(de.sum())))
     pd.DataFrame(rows).to_csv(f"{OUT}/T8_cdrfn_by_group.csv", index=False)
 
-    # ---------- T9: vendor-country (exploratory) ----------
     if os.path.exists(a.meta):
         meta = json.load(open(a.meta)); rows = []
         for (m, c, l, r), p in sorted(prim.items()):
@@ -309,7 +285,6 @@ def main():
                                  open_weight=meta[m].get("open"), cond=c, lang=l, metric=name, value=rate(nu, de), den=int(de.sum())))
         pd.DataFrame(rows).to_csv(f"{OUT}/T9_vendor_exploratory.csv", index=False)
 
-    # ---------- T10: 2x2 prompt ablation (exemplars x chain-of-thought), GEE clustered on item ----------
     try:
         import statsmodels.api as sm, statsmodels.formula.api as smf
         FS = {"zs": (0, 0), "zs_cot": (0, 1), "fs": (1, 0), "fs_cot": (1, 1)}
@@ -333,7 +308,6 @@ def main():
     except Exception as e:
         print("T10 skipped:", e)
 
-    # ---------- T4f: native vs machine-translated (does the original-language version score higher?) ----------
     orig = np.array([i["original_language"] for i in items])
     rows = []
     for m in models:
@@ -356,7 +330,6 @@ def main():
                                      native_minus_translated=float((native - trans)[mask].mean()), lo=lo, hi=hi))
     pd.DataFrame(rows).to_csv(f"{OUT}/T4f_native_vs_translated.csv", index=False)
 
-    # ---------- T11: alignment drift by GOLD ACTOR (is the Pro-West/Pro-China reading actor-dependent?) ----------
     from statsmodels.stats.proportion import proportion_confint
     rows = []
     for (m, c, l, r), p in sorted(prim.items()):
@@ -369,7 +342,6 @@ def main():
                              polarized_rate=(pw + pc) / k, lo=lo, hi=hi))
     pd.DataFrame(rows).to_csv(f"{OUT}/T11_alignment_drift_by_actor.csv", index=False)
 
-    # ---------- T12: paired differences between prompt conditions (same model, same language) ----------
     rows = []
     for m in models:
         for l in ("en", "bn"):
@@ -387,9 +359,6 @@ def main():
                     rows.append(dict(model=m, lang=l, cond_a=c1, cond_b=c2, metric=name, a=v1, b=v2, diff_b_minus_a=v2 - v1, lo=lo, hi=hi))
     pd.DataFrame(rows).to_csv(f"{OUT}/T12_condition_pairs.csv", index=False)
 
-    # ---------- T13: errors shared across models (do different models fail on the same items, with the same label?) ----------
-    # Main prompt runs only (tags ending -codebook), run 0, both text versions pooled; CIs resample items.
-    # expected_all_wrong = product of the models' error rates = what independent errors would give.
     mm = [m for m in models if m.endswith("-codebook")]; rows, crow = [], []
     if len(mm) >= 2:
         for c in conds:
@@ -397,7 +366,7 @@ def main():
             if not ls: continue
             for cat in CATEGORIES:
                 g = gold[cat]; P_ = {(m, l): prim[(m, c, l, 0)][cat] for m in mm for l in ls}
-                err = {m: sum((P_[(m, l)] != g).astype(float) for l in ls) for m in mm}                       # per item, summed over versions
+                err = {m: sum((P_[(m, l)] != g).astype(float) for l in ls) for m in mm}
                 allw = sum(np.all([P_[(m, l)] != g for m in mm], axis=0).astype(float) for l in ls)
                 same = sum((np.all([P_[(m, l)] != g for m in mm], axis=0) & np.all([P_[(m, l)] == P_[(mm[0], l)] for m in mm], axis=0)
                             & np.array([x is not None for x in P_[(mm[0], l)]])).astype(float) for l in ls)
@@ -411,7 +380,6 @@ def main():
                                  same_wrong_label=rate(same, den), same_lo=slo, same_hi=shi,
                                  share_of_shared_errors_with_same_label=same.sum() / allw.sum() if allw.sum() else np.nan,
                                  all_models_same_label=rate(agree, den)))
-                # T14: direction of the shared wrong label (gold A -> all models say B, versus gold B -> all say A); items counted once
                 cnt, cnt_v = {}, {}
                 for l in ls:
                     for i in range(n):
@@ -420,7 +388,7 @@ def main():
                         cnt.setdefault((g[i], pv), set()).add(i); cnt_v[(g[i], pv)] = cnt_v.get((g[i], pv), 0) + 1
                 for (a_, b_), ids_ in cnt.items():
                     rev = len(cnt.get((b_, a_), ())); k = len(ids_)
-                    if k < rev or (k == rev and a_ > b_): continue      # keep the dominant direction of each pair once
+                    if k < rev or (k == rev and a_ > b_): continue
                     crow.append(dict(cond=c, category=cat, gold=a_, shared_pred=b_, items=k, item_versions=cnt_v[(a_, b_)], reverse_items=rev,
                                      share_this_direction=k / (k + rev), gold_n=int((g == a_).sum()), rate_of_gold=k / max(1, int((g == a_).sum())),
                                      p_binom=binomtest(k, k + rev, 0.5).pvalue))
@@ -429,7 +397,6 @@ def main():
         if len(C): C["p_holm"] = holm(C.p_binom.values); C = C.sort_values(["cond", "items"], ascending=[True, False])
         C.to_csv(f"{OUT}/T14_shared_error_direction.csv", index=False)
 
-    # ---------- console summary ----------
     pd.set_option("display.width", 220, "display.max_columns", 30, "display.max_rows", 200)
     s = T1[(T1.lang.isin(["en", "bn"]))].pivot_table(index=["model", "cond", "lang"], columns="metric", values="value")
     print(s.round(3))

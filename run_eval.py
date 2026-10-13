@@ -16,7 +16,7 @@ from bfpn.schema import build_prompt, select_exemplars, extract_json, validate, 
 def load_items(path="data/bfpn_v2.jsonl", max_chars=60000):
     items = [json.loads(l) for l in open(path)]
     n_trunc = 0
-    for it in items:      # truncate both languages by the SAME proportion so they stay parallel
+    for it in items:
         m = max(len(it["text_en"]), len(it["text_bn"]))
         if m > max_chars:
             r = max_chars / m; n_trunc += 1
@@ -29,10 +29,10 @@ class Throttle:
     the server's usage numbers). Sliding-window budget + GLOBAL cooldown on any 429 + AIMD: the budget is cut by 40% on each 429 and
     recovers 5% per quiet 30 s, so retries never storm the gateway."""
     def __init__(self, limit, window=60.0):
-        self.base = float(limit); self.limit = self.base if self.base >= 5_000_000 else min(self.base, 300000.0); self.window = window   # huge --tpm = limiter off
+        self.base = float(limit); self.limit = self.base if self.base >= 5_000_000 else min(self.base, 300000.0); self.window = window
         self.lock = threading.Lock(); self.log = _c.deque(); self.inflight = 0
         self.cooldown_until = 0.0; self.last_hit = 0.0; self.last_up = time.time(); self.hits = 0
-        self.max_p = 64000; self.inflight_p = 0; self.ratio = 0.6   # cap on PROMPT tokens in flight (protects the server's KV cache); ratio = tokens per char, learned
+        self.max_p = 64000; self.inflight_p = 0; self.ratio = 0.6
     def acquire(self, est, est_p=0):
         while True:
             with self.lock:
@@ -58,7 +58,7 @@ class Throttle:
             self.limit = max(40000.0, self.limit * 0.6)
             print(f"  [429 #{self.hits}] global cooldown {wait + 10:.0f}s, budget -> {self.limit/1000:.0f}k tok/min", flush=True)
 THROTTLE = None
-USAGE = {"input_tokens": 0, "output_tokens": 0}; USAGE_LOCK = threading.Lock()   # billed tokens (anthropic and openai providers), logged per file
+USAGE = {"input_tokens": 0, "output_tokens": 0}; USAGE_LOCK = threading.Lock()
 
 def get_key(a):
     k = os.environ.get("OPENAI_API_KEY")
@@ -69,15 +69,14 @@ def get_key(a):
 def make_caller(a):
     if a.provider == "anthropic":
         import anthropic
-        p = os.path.expanduser("~/.anthropic_api_key")   # used if ANTHROPIC_API_KEY is not set; keep OUTSIDE the repo
+        p = os.path.expanduser("~/.anthropic_api_key")
         key = os.environ.get("ANTHROPIC_API_KEY") or (open(p).read().strip() if os.path.exists(p) else None)
         cl = anthropic.Anthropic(api_key=key, max_retries=6, timeout=600)
-        extra = json.loads(a.extra_body) if a.extra_body else {}   # e.g. '{"thinking":{"type":"disabled"}}'
+        extra = json.loads(a.extra_body) if a.extra_body else {}
         def call(prompt, temp, seed, max_tokens):
-            kw = {} if a.no_temp else {"temperature": temp}   # current Claude models reject a fixed temperature: pass --no-temp
+            kw = {} if a.no_temp else {"temperature": temp}
             r = cl.messages.create(model=a.model, max_tokens=max_tokens, messages=[{"role": "user", "content": prompt}], **kw, **extra)
             with USAGE_LOCK: USAGE["input_tokens"] += r.usage.input_tokens; USAGE["output_tokens"] += r.usage.output_tokens
-            # "max_tokens" is reported as "length" so truncation is counted the same way as for the other providers
             return "".join(b.text for b in r.content if b.type == "text"), ("length" if r.stop_reason == "max_tokens" else r.stop_reason)
     else:
         import openai
@@ -127,7 +126,7 @@ def main():
     ap.add_argument("--keep-caps", action="store_true", help="do not raise --max-tokens/--max-tokens-cot to the generous floors below")
     a = ap.parse_args()
     if not a.keep_caps: a.max_tokens, a.max_tokens_cot = max(a.max_tokens, 4000), max(a.max_tokens_cot, 16000)
-    if a.tpm == 400000: a.tpm = 470000   # pass --tpm 100000000 to switch the client-side limiter off
+    if a.tpm == 400000: a.tpm = 470000
 
     items, n_trunc = load_items(max_chars=a.max_chars)
     dev = [i for i in items if i["split"] == "dev"]
@@ -155,16 +154,13 @@ def main():
                         prompt = build_prompt(text, cond, exemplars, lang, a.schema)
                         try:
                             raw, fin = call(prompt, temp, run + 1000 * empty, mt)
-                            # reasoning models can spend the whole budget on hidden reasoning and return no answer: retry with another seed (3x), then keep it as unparsed
                             if fin == "length" and not raw.strip() and empty < 3: empty += 1; continue
                             break
                         except Exception as e:
                             msg = str(e).lower(); err = f"{type(e).__name__}: {str(e)[:300]}"
                             if "context" in msg or "maximum" in msg or "too long" in msg:
-                                # prefer shrinking the OUTPUT allowance to fit the window; shrink the input only if the prompt alone does not fit
                                 mw = _re.search(r"context length is (\d+)", msg); mi = _re.search(r"(\d+) input tokens", msg)
                                 win, inp = (int(mw.group(1)) if mw else 32768), (int(mi.group(1)) if mi else None)
-                                # "at least N input tokens" is only a lower bound (window - requested + 1), not the prompt size: shrink geometrically
                                 if inp and "at least" not in msg and win - inp - 64 >= 1024:
                                     mt = min(mt, win - inp - 64)
                                 elif mt > 1024:
@@ -180,7 +176,7 @@ def main():
                                     except Exception: pass
                                 THROTTLE.hit(min(wait, 90)); raw, fin = "", "error:RateLimit"; continue
                             raw, fin = "", f"error:{type(e).__name__}"; time.sleep(2 ** min(attempt, 5) * 2)
-                    if fin.startswith("error"):                  # failed call: do NOT persist, so a resume retries it
+                    if fin.startswith("error"):
                         print(f"  WARN failed {it['id']} {cond}/{lang}/r{run} ({fin}): {err}", flush=True); return None
                     pred = validate(extract_json(raw))
                     return {"id": it["id"], "model": a.tag, "condition": cond, "lang": lang, "run": run,
@@ -188,7 +184,7 @@ def main():
                             "chars": len(text), "max_tokens_used": mt, "empty_retries": empty, "chars_full": len(it["text_" + lang]), "text_fraction_used": round(used, 3), "raw": raw}
                 t0 = time.time(); failed = 0
                 with ThreadPoolExecutor(a.workers) as ex, open(path, "a") as f:
-                    from concurrent.futures import as_completed   # write each result the moment it finishes (no head-of-line blocking)
+                    from concurrent.futures import as_completed
                     futs = [ex.submit(work, it) for it in todo]
                     for k, r in enumerate((ft.result() for ft in as_completed(futs)), 1):
                         if r is None: failed += 1; continue
@@ -200,7 +196,7 @@ def main():
                 rs = [json.loads(l) for l in open(path)]
                 bad = sum(not r["parsed"] for r in rs); cut = sum(r["finish"] == "length" for r in rs)
                 print(f"done {path} ({len(todo) - failed} new, {failed} FAILED-not-saved, {time.time()-t0:.0f}s) | unparsed {bad}/{len(rs)} | truncated {cut}/{len(rs)}")
-                if USAGE["input_tokens"]:   # paid API: keep a per-file record of billed tokens in <tag>/usage.jsonl
+                if USAGE["input_tokens"]:
                     with open(os.path.join(outdir, "usage.jsonl"), "a") as uf: uf.write(json.dumps({"file": os.path.basename(path), "calls_saved": len(todo) - failed, **USAGE}) + "\n")
                     print(f"  usage {os.path.basename(path)}: {USAGE['input_tokens']:,} input, {USAGE['output_tokens']:,} output tokens", flush=True)
                     USAGE["input_tokens"] = USAGE["output_tokens"] = 0

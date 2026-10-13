@@ -3,13 +3,13 @@ Optional argument: model tag prefix (default qwen38-27b), e.g. `check_complete.p
 import json, os, sys
 T = sys.argv[1] if len(sys.argv) > 1 else "qwen38-27b"
 R = "results/v2"; MAIN = f"{T}-codebook"; BAL = f"{T}-balex"
-plan = []   # (tag, cond, run, expected unique ids)
-for c in ("zs", "fs", "zs_cot", "fs_cot"): plan.append((MAIN, c, 0, 527))     # 486 test + 41 dev
+plan = []
+for c in ("zs", "fs", "zs_cot", "fs_cot"): plan.append((MAIN, c, 0, 527))
 for c in ("zs", "fs_cot"):
     for r in (1, 2): plan.append((MAIN, c, r, 527))
 for r in (3, 4): plan.append((MAIN, "zs", r, 527))
 plan.append((BAL, "fs", 0, 527))
-missing, gaps = [], []   # gaps = rows that exist but are unusable or weakened (no answer, cut off, input shortened)
+missing, gaps = [], []
 for tag, c, r, n in plan:
     for l in ("en", "bn"):
         f = f"{R}/{tag}/{c}_{l}_r{r}.jsonl"

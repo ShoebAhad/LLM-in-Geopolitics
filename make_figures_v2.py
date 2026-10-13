@@ -20,7 +20,7 @@ from bfpn.metrics import METRICS, ind_ACC, boot_weights, ci
 OUT = "figures/v2"; A = "results/v2/analysis"; os.makedirs(OUT, exist_ok=True)
 MODELS = [("gemma4-31b", "Gemma 4 31B"), ("qwen38-27b", "Qwen3.8 27B"), ("ministral3-14b", "Ministral 3 14B"),
           ("gpt-oss-20b", "gpt-oss 20B"), ("llama31-8b", "Llama 3.1 8B"), ("haiku55", "Claude Haiku 5.5"), ("gpt6-luna", "GPT-6 Luna")]
-N_OPEN = 5   # the first five are open-weight, the last two are closed
+N_OPEN = 5
 CONDS = [("zs", "Zero-shot"), ("zs_cot", "Zero-shot\n+ CoT"), ("fs", "Few-shot"), ("fs_cot", "Few-shot\n+ CoT")]
 INK, INK2, GRID, AXIS = "#0b0b0b", "#52514e", "#e1e0d9", "#c3c2b7"
 BLUE, ORANGE, AQUA, GREY = "#2a78d6", "#eb6834", "#1baf7a", "#c3c2b7"
@@ -30,7 +30,6 @@ plt.rcParams.update({"font.family": "DejaVu Sans", "font.weight": "bold", "font.
                      "xtick.color": INK, "ytick.color": INK, "axes.edgecolor": AXIS, "axes.linewidth": 1.0,
                      "figure.facecolor": "white", "axes.facecolor": "white", "savefig.facecolor": "white", "pdf.fonttype": 42})
 
-# ── data ──────────────────────────────────────────────────────────────────────
 items = [json.loads(l) for l in open("data/bfpn_v2.jsonl")]
 dev = [i for i in items if i["split"] == "dev"]
 ex_ids = {e["id"] for m in ("default", "balanced") for e in select_exemplars(dev, mode=m)}
@@ -47,15 +46,14 @@ def pooled(tag, cond, fn):
     return num.sum() / den.sum(), lo, hi
 def metric(name): return lambda g, p: METRICS[name][0](g[METRICS[name][1]], p[METRICS[name][1]])
 def acc(g, p): return np.mean([ind_ACC(g[c], p[c])[0] for c in CATEGORIES], axis=0), np.ones(n)
-def share_shift(cat, label):   # predicted share minus gold share of one label
+def share_shift(cat, label):
     return lambda g, p: ((p[cat] == label).astype(float) - (g[cat] == label).astype(float), np.ones(n))
 
-# ── shared drawing helpers ────────────────────────────────────────────────────
 def model_axis(ax, labels=True):
     y = np.arange(len(MODELS))[::-1]
     ax.set_yticks(y); ax.set_yticklabels([m[1] for m in MODELS])
     ax.set_ylim(-0.6, len(MODELS) - 0.4); ax.tick_params(axis="y", length=0)
-    ax.axhline(len(MODELS) - N_OPEN - 0.5, color=INK2, lw=1.0, ls=(0, (4, 3)))   # open-weight above, closed below
+    ax.axhline(len(MODELS) - N_OPEN - 0.5, color=INK2, lw=1.0, ls=(0, (4, 3)))
     for s in ("top", "right", "left"): ax.spines[s].set_visible(False)
     ax.grid(axis="x", color=GRID, lw=0.9); ax.set_axisbelow(True)
     return y
@@ -78,19 +76,17 @@ def save(fig, name):
     plt.close(fig); print("wrote", f"{OUT}/{name}.png / .pdf")
 def pct(ax): ax.xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:.0f}%"))
 
-# ── Fig 1: accuracy ───────────────────────────────────────────────────────────
 fig, ax = plt.subplots(figsize=(7.4, 4.3))
 zs_fs_dots(ax, acc, scale=100); ax.set_yticklabels([m[1] for m in MODELS]); group_tags(ax); pct(ax)
 ax.set_xlim(56, 76); ax.set_xticks(range(56, 77, 4)); ax.set_ylim(-0.6, len(MODELS) + 0.45); ax.set_xlabel("Accuracy, mean of the eight categories")
 t1 = pd.read_csv(f"{A}/T1_main.csv"); t1 = t1[(t1.metric == "ACC_all8") & (t1.cond == "sup")]
 for tag, lab, ha, dx in (("majority-class", "Majority class", "left", 0.25), ("tfidf-logreg", "TF-IDF + logistic\nregression (supervised)", "right", -0.25)):
-    v = 100 * t1[t1.model == tag].value.mean()   # non-LLM reference: mean of the English and Bangla versions, 5-fold cross-validation
+    v = 100 * t1[t1.model == tag].value.mean()
     ax.axvline(v, color=INK2, lw=1.6, ls=(0, (1, 2)), zorder=1)
     ax.text(v + dx, len(MODELS) - 0.48, lab, ha=ha, va="bottom", fontsize=10.5, color=INK2, linespacing=1.1)
 ax.legend(handles=ZS_FS_LEGEND, loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=2, frameon=False, handlelength=1.6)
 save(fig, "fig1_accuracy")
 
-# ── Fig 2: where gold Non-aligned items go ────────────────────────────────────
 ALIGN = [("Non-aligned", GREY, INK, "Non-aligned (correct)"), ("Mixed", AQUA, INK, "Mixed"),
          ("Pro-West", BLUE, "white", "Pro-West"), ("Pro-China", ORANGE, INK, "Pro-China")]
 fig, axes = plt.subplots(1, 2, figsize=(11.6, 4.5), sharey=True, gridspec_kw={"wspace": 0.15})
@@ -112,7 +108,6 @@ fig.legend(handles=[Patch(facecolor=c, edgecolor="white", label=l) for _, c, _, 
            bbox_to_anchor=(0.5, 0.96), ncol=4, frameon=False, handlelength=1.3, columnspacing=1.6)
 save(fig, "fig2_alignment_destinations")
 
-# ── Fig 3: shared errors ──────────────────────────────────────────────────────
 CAT = {"frame": "Frame", "actor": "Actor", "actor_role": "Actor role", "agency": "Agency", "moral_valence": "Moral valence",
        "causal_present": "Causal link", "policy_direction": "Policy direction", "alignment": "Alignment"}
 t13 = pd.read_csv(f"{A}/T13_shared_errors.csv"); t13 = t13[t13.cond == "zs"].sort_values("all_wrong")
@@ -143,7 +138,6 @@ for ax in (a1, a2):
     ax.tick_params(axis="y", length=0); ax.grid(axis="x", color=GRID, lw=0.9); ax.set_axisbelow(True)
 save(fig, "fig3_shared_errors")
 
-# ── Fig 4: attribution and alignment bias on one scale ────────────────────────
 fig, axes = plt.subplots(1, 3, figsize=(12.6, 4.4), sharey=True, gridspec_kw={"wspace": 0.16})
 for ax, (name, title) in zip(axes, (("ASI_India", "Agency given to India\n(gold actor: a smaller state)"),
                                     ("ASI", "Agency given to a major power\n(gold actor: not a major power)"),
@@ -153,7 +147,6 @@ axes[0].set_yticklabels([m[1] for m in MODELS]); group_tags(axes[2])
 fig.legend(handles=ZS_FS_LEGEND, loc="lower center", bbox_to_anchor=(0.5, 1.03), ncol=2, frameon=False, handlelength=1.6)
 save(fig, "fig4_bias_metrics")
 
-# ── Fig 5: prompt ablation ────────────────────────────────────────────────────
 ramp = LinearSegmentedColormap.from_list("blue", ["#eef5fd", "#9ec5f4", "#3987e5", "#184f95", "#0d366b"])
 fig, axes = plt.subplots(1, 2, figsize=(12.6, 4.6), gridspec_kw={"wspace": 0.52})
 for ax, (fn, title, vmin, vmax) in zip(axes, ((metric("ADS"), "Non-aligned read as Pro-West or Pro-China", 0, 55), (acc, "Accuracy, mean of the eight categories", 60, 73))):
@@ -169,7 +162,6 @@ for ax, (fn, title, vmin, vmax) in zip(axes, ((metric("ADS"), "Non-aligned read 
     for s in ax.spines.values(): s.set_visible(False)
 save(fig, "fig5_prompt_ablation")
 
-# ── Fig 6: polarisation by gold actor (zero-shot) ─────────────────────────────
 def pol_for(actor):
     def fn(g, p):
         d = (g["alignment"] == "Non-aligned") & (g["actor"] == actor) & np.array([x is not None for x in p["alignment"]])
@@ -188,7 +180,6 @@ ax.legend(handles=[Line2D([], [], color=c, marker=m, ms=8.5, mec="white", lw=2.2
           loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=3, frameon=False, handlelength=1.6, columnspacing=1.4)
 save(fig, "fig6_polarisation_by_actor")
 
-# ── Fig 7: frame and causal diagnostics ───────────────────────────────────────
 fig, axes = plt.subplots(1, 3, figsize=(12.6, 4.4), sharey=True, gridspec_kw={"wspace": 0.16})
 zs_fs_dots(axes[0], share_shift("frame", "Strategic"), scale=100); axes[0].axvline(0, color=INK, lw=1.2); axes[0].set_xlim(-8, 28)
 axes[0].xaxis.set_major_formatter(matplotlib.ticker.FuncFormatter(lambda v, _: f"{v:+.0f}" if v else "0"))

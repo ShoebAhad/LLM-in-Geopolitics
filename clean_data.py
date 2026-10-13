@@ -15,7 +15,7 @@ SRC = "Foreign Annotation Data Multisource.xlsx"
 OUT = "data/bfpn_v2.jsonl"
 REPORT = "data/cleaning_report.json"
 SEED = 42
-DEV_N = 40            # held-out items used only for few-shot exemplars / prompt checks
+DEV_N = 40
 
 BN = re.compile(r"[ঀ-৿]")
 def bn_ratio(t):
@@ -25,9 +25,6 @@ def bn_ratio(t):
 def norm_text(t): return re.sub(r"\s+", " ", str(t)).strip()
 def item_id(t):   return "bfpn_" + hashlib.md5(norm_text(t).encode()).hexdigest()[:10]
 
-# Actor policy (authors, 5 Oct): the label set is the explicit list below (country names; "US" and "UN" as written in the
-# codebook). EVERY other country or organisation (EU, ASEAN, BRICS, QUAD, IOM, Japan, Nepal, Gulf states, ...) is "Other".
-# actor_raw keeps the original actor, spelled as a proper country/organisation name.
 ACTOR_LIST = ["Bangladesh", "India", "Pakistan", "Sri Lanka", "Bhutan", "Myanmar", "China", "US", "UN"]
 ACTOR_MAP = {"usa": "US", "united states": "US", "srilanka": "Sri Lanka", "malayasia": "Malaysia", "turkiye": "Turkey",
              "quad": "QUAD", "european": "EU", "european union": "EU"}
@@ -39,7 +36,7 @@ POLICY_MAP = {"co-operation": "Cooperation"}
 def main():
     raw = pd.read_excel(SRC, sheet_name="Sheet1").iloc[:, :14]
     rep = {"rows_in_sheet": len(raw)}
-    df = raw[raw["Actor"].notna()].copy()               # annotated rows only
+    df = raw[raw["Actor"].notna()].copy()
     rep["annotated_rows"] = len(df)
     for c in ["Frame", "Actor", "Actor_Role", "Agency", "Moral_valence", "Causal_Claim",
               "policy_direction", "Alignment"]:
@@ -55,7 +52,6 @@ def main():
     df["actor_raw"] = df["Actor"].map(lambda v: ACTOR_MAP.get(v.lower(), v))
     df["Actor_Role"] = df["Actor_Role"].str.capitalize()
 
-    # which column is English / Bangla?  'Texts' = original, translation col = the other language
     rows, conflicts, bad = {}, [], []
     for _, r in df.iterrows():
         orig, trans = norm_text(r["Texts"]), norm_text(r["Translation (EN->BN/BN->EN)"])
@@ -80,7 +76,6 @@ def main():
     rep["duplicate_text_label_conflicts_dropped"] = len(set(conflicts))
     for c in set(conflicts): rows.pop(c, None)
 
-    # explicit actor list; everything else -> Other (raw kept)
     cnt = Counter(v["gold_raw"]["actor"] for v in rows.values())
     for v in rows.values():
         g = dict(v["gold_raw"]); v["actor_raw"] = g["actor"]
@@ -90,7 +85,6 @@ def main():
     rep["actor_raw_counts"] = dict(cnt.most_common())
     rep["mapped_to_Other"] = {a: n for a, n in cnt.most_common() if a not in ACTOR_LIST}
 
-    # stratified dev split by alignment x original_language (seeded, deterministic)
     items = sorted(rows.values(), key=lambda v: v["id"])
     import random; rnd = random.Random(SEED)
     groups = {}

@@ -14,8 +14,7 @@ VALID_LABELS = {
 }
 CATEGORIES = list(VALID_LABELS)
 
-# metric label sets
-MAJOR = {"India", "China", "US", "UN"}                       # "major power" set M
+MAJOR = {"India", "China", "US", "UN"}
 SMALL_SA = {"Bangladesh", "Pakistan", "Sri Lanka", "Bhutan", "Myanmar"}
 POLARIZED = {"Pro-West", "Pro-China"}
 
@@ -72,12 +71,6 @@ ALIGNMENT - geopolitical stance implied by the narrative:
 """
 
 
-# Codebook-faithful variant: wording follows the authors' annotation codebook (Sec. 4-6). Differences from SCHEMA_PAPER:
-#  * no "Economic+Strategic -> Strategic" frame tie-break (codebook: dominant frame only, ignore secondary signals)
-#  * ALIGNMENT is "direct or indirect beneficiary" / which bloc the involved country mostly allies with,
-#    not "stance of the framing"; no "use Mixed sparingly"
-#  * CAUSAL: explicit cause-effect stated in the text (not "connector words only")
-#  * actor hierarchy has the 4th step (mentioned first) and special cases A-E
 SCHEMA_CODEBOOK = """=== ANNOTATION CODEBOOK ===
 Annotate how the narrative is constructed, NOT whether it is factually true. Annotate the whole document.
 Follow this order: main story -> frame -> actor -> role -> agency -> moral valence -> causal claim -> policy direction -> alignment.
@@ -136,7 +129,6 @@ JSON_TEMPLATE = ('{"frame": "...", "actor": "...", "actor_role": "...", "agency"
                  '"moral_valence": "...", "causal_present": "...", "policy_direction": "...", '
                  '"alignment": "..."}')
 
-# Conditions are a 2x2 of independent switches: few-shot exemplars x chain-of-thought.
 CONDITIONS = {"zs": (False, False), "zs_cot": (False, True),
               "fs": (True, False),  "fs_cot": (True, True)}
 
@@ -203,8 +195,6 @@ def validate(pred):
         v = (pred or {}).get(c)
         v = v.strip() if isinstance(v, str) else v
         if c == "actor" and isinstance(v, str) and v and v not in VALID_LABELS[c]:
-            # the codebook defines Other as "any country or organization not listed": a single unlisted actor (Japan, EU, ...) IS Other,
-            # exactly as the gold labels were cleaned. Applied to every model. Multi-actor answers stay invalid.
             if v in ("United States", "USA", "U.S.", "United States of America"): v = "US"
             elif not any(sep in v for sep in (",", "/", ";", " and ", "|")) and len(v) <= 40: v = "Other"
         out[c] = v if v in VALID_LABELS[c] else None

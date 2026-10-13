@@ -59,7 +59,7 @@ def run_xlmr(items, F, epochs=8, lr=2e-5, batch=16, max_len=512):
     for k, te in enumerate(F):
         torch.manual_seed(SEED + k); t0 = time.time()
         tr = np.setdiff1d(np.arange(len(items)), te)
-        train = [(items[i]["text_" + l], [L2I[c][items[i]["gold"][c]] for c in CATEGORIES]) for i in tr for l in ("en", "bn")]   # both versions
+        train = [(items[i]["text_" + l], [L2I[c][items[i]["gold"][c]] for c in CATEGORIES]) for i in tr for l in ("en", "bn")]
         net = Net().to(dev); opt = torch.optim.AdamW(net.parameters(), lr=lr, weight_decay=0.01)
         steps = epochs * ((len(train) + batch - 1) // batch)
         sched = torch.optim.lr_scheduler.OneCycleLR(opt, max_lr=lr, total_steps=steps, pct_start=0.1, anneal_strategy="linear")

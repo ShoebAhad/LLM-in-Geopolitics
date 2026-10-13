@@ -13,7 +13,7 @@ import argparse, json, os, time
 from transformers import pipeline
 from bfpn.schema import CATEGORIES, VALID_LABELS
 
-MODELS = {   # tag -> Hugging Face id (the two baselines reported in v1)
+MODELS = {
     "mdeberta-nli":  "MoritzLaurer/mDeBERTa-v3-base-mnli-xnli",
     "xlmr-base-nli": "symanto/xlm-roberta-base-snli-mnli-anli-xnli",
 }
