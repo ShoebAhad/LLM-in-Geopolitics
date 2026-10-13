@@ -24,7 +24,6 @@ to produce the same 8 labels, and the analysis tests whether their errors are *d
 | `reparse.py` | re-parse stored raw outputs after a parser change |
 | `analyze.py` | all statistics -> `results/v2/analysis/T*.csv` |
 | `make_figures_v2.py` | figures -> `figures/v2/` |
-| `iaa.py` | inter-annotator agreement: draw a sample, score re-annotations |
 | `results/v2/<tag>-codebook/`, `results/v2/<tag>-balex/` | raw outputs and parsed predictions per model (`<cond>_<lang>_r<run>.jsonl`) |
 | `results/v2/analysis/` | the tables reported in the paper |
 
